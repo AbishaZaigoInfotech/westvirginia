@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StationRequest;
 use App\Models\Station;
 
 class StationController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $stations = Station::get(); 
+        $stations = Station::select('id', 'logo', 'call_letters', 'frequency', 'format', 'streaming_player', 'website', 'phone', 'email'); 
+        if($request->format){
+            $stations->where('format', $request->format);
+        }
+        if($request->call_letters==1){
+            $stations->orderBy('call_letters', 'asc');
+        }elseif($request->call_letters==2){
+            $stations->orderBy('call_letters', 'desc');
+        }   
+        $stations = $stations->paginate(2);
         return view('stations.index', compact('stations'));
     }
 
@@ -19,18 +29,8 @@ class StationController extends Controller
         return view('stations.create');
     }
 
-    public function store(Request $request)
+    public function store(StationRequest $request)
     {
-        $request->validate([
-            'call_letters'=>'required',
-            'frequency'=>'required',
-            'format'=>'required',
-            'streaming_player'=>'required | url',
-            'website'=>'required | url',
-            'phone'=>'required | numeric',
-            'email'=>'required | regex:/^[a-zA-Z0-9]+@[a-zA-Z]/u | unique:stations',
-            // 'logo'=>'required',
-        ]);
         $station = new Station;
         $station->call_letters = $request->call_letters;
         $station->frequency = $request->frequency;
@@ -39,7 +39,13 @@ class StationController extends Controller
         $station->website = $request->website;
         $station->phone = $request->phone;
         $station->email = $request->email;
+        if($request->logo!=NULL) {
+            $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->logo->extension();
+            $request->logo->storeAs('/public/images/', $image_name);
+            $station->logo = $image_name;
+        }
         $station->save();
+        return redirect()->route('stations.index');
     }
 
     public function edit($id)
@@ -48,27 +54,28 @@ class StationController extends Controller
         return view('stations.edit', compact('station'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StationRequest $request, $id)
     {
-        $request->validate([
-            'call_letters'=>'required',
-            'frequency'=>'required',
-            'format'=>'required',
-            'streaming_player'=>'required | url',
-            'website'=>'required | url',
-            'phone'=>'required | numeric',
-            'email'=>'required | regex:/^[a-zA-Z0-9]+@[a-zA-Z]/u',
-            // 'logo'=>'required',
-        ]);   
-        $station = Station::where('id', $id)->update([
-            'call_letters'=>$request->input('call_letters'),
-            'frequency'=>$request->input('frequency'),
-            'format'=>$request->input('format'),
-            'streaming_player'=>$request->input('streaming_player'),
-            'website'=>$request->input('website'),
-            'phone'=>$request->input('phone'),
-            'email'=>$request->input('email'),
-        ]);
-        return redirect('stations.index');
+        $station = Station::find($id);
+        $station->call_letters = $request->call_letters;
+        $station->frequency = $request->frequency;
+        $station->format = $request->format;
+        $station->streaming_player = $request->streaming_player;
+        $station->website = $request->website;
+        $station->phone = $request->phone;
+        $station->email = $request->email;
+        if($request->logo!=NULL) {
+            $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->logo->extension();
+            $request->logo->storeAs('/public/images/', $image_name);
+            $station->logo = $image_name;
+        }
+        $station->save();
+        return redirect()->route('stations.index');
+    }
+    public function destroy($id)
+    {
+        $station = Station::find($id);
+        $station->delete();
+        return redirect()->route('stations.index');
     }
 }

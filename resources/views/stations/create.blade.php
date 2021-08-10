@@ -15,7 +15,7 @@
                <a href="{{ route('stations.index') }}" title="Back to Station List" class="btn btn-warning btn-sm"><i aria-hidden="true" class="fa fa-arrow-left"></i> Back to Station List
                </a> 
                <br> <br> 
-               <form method="POST" action="{{ route('stations.store') }}"  class="form-horizontal" autocomplete="off">
+               <form method="POST" action="{{ route('stations.store') }}"  enctype="multipart/form-data" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
                   @csrf
                   <div class="row">
                      <div class="col-md-4">
@@ -41,11 +41,11 @@
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
                             <option value="">Select</option>
-                            <option value="1">Rock</option>
-                            <option value="2">Country</option>
-                            <option value="3">AC</option>
-                            <option value="4">CHR</option>
-                            <option value="5">News/Talk</option>
+                            <option value="1" @if (old('format') == '1') selected="selected" @endif>Rock</option>
+                            <option value="2" @if (old('format') == '2') selected="selected" @endif>Country</option>
+                            <option value="3" @if (old('format') == '3') selected="selected" @endif>AC</option>
+                            <option value="4" @if (old('format') == '4') selected="selected" @endif>CHR</option>
+                            <option value="5" @if (old('format') == '5') selected="selected" @endif>News/Talk</option>
                            </select>
                            @error('format')
                            <span class="text-danger">{{ $message }}</span>

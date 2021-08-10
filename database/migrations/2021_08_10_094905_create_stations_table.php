@@ -13,7 +13,6 @@ class CreateStationsTable extends Migration
      */
     public function up()
     {
-        //
         Schema::create('stations', function (Blueprint $table) {
             $table->id();
             $table->string('logo');
@@ -25,6 +24,7 @@ class CreateStationsTable extends Migration
             $table->bigInteger('phone');
             $table->string('email');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -35,7 +35,6 @@ class CreateStationsTable extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('stations');
     }
 }

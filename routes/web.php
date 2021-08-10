@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/** STATION ROUTES **/
+
 Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations.store', 'stations.update']], function(){
     Route::get('/',[App\Http\Controllers\StationController::class, 'index'])->name('stations.index');
-    // Route::post('/','ModuleController@index')->name('stations.filter');
     Route::get('create',[App\Http\Controllers\StationController::class, 'create'])->name('stations.create');
     Route::post('create',[App\Http\Controllers\StationController::class, 'store'])->name('stations.store');
     Route::get('{station}/edit',[App\Http\Controllers\StationController::class, 'edit'])->name('stations.edit');
@@ -28,11 +29,9 @@ Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations
     Route::delete('{station}',[App\Http\Controllers\StationController::class, 'destroy'])->name('stations.destroy');
 });
 
+/** STATION ROUTES **/
+
 Auth::routes();
-
-/** STATION ROUTES **/
-
-/** STATION ROUTES **/
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /**** LARASNAP ROUTES START ****/

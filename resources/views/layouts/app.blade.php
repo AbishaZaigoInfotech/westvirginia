@@ -11,6 +11,8 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('vendor/larasnap-auth/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('vendor/larasnap-auth/css/util.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ asset('vendor/larasnap-auth/css/main.css') }}">
+      <style>
+      </style>
    </head>
    <body class="larasnap {{ $class ?? '' }}">
       <div class="limiter">
