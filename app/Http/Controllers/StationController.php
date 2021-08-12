@@ -19,6 +19,13 @@ class StationController extends Controller
             $stations->orderBy('call_letters', 'asc');
         }elseif($request->call_letters==2){
             $stations->orderBy('call_letters', 'desc');
+        }
+        if($request->search) {
+            $stations->where('call_letters','like','%'.$request->search.'%')
+                     ->orWhere('frequency','like','%'.$request->search.'%')
+                     ->orWhere('format','like','%'.$request->search.'%')
+                     ->orWhere('phone','like','%'.$request->search.'%')
+                     ->orWhere('email','like','%'.$request->search.'%');
         }   
         $stations = $stations->paginate(2);
         return view('stations.index', compact('stations'));

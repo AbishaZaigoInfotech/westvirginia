@@ -13,8 +13,8 @@
          <div class="card-body">
             <div class="card-body">
                     <div class="col-md-2 pad-0">
-                                <a href="{{ route('stations.create') }}" title="Add New Station" class="btn btn-primary btn-sm"><i aria-hidden="true" class="fa fa-plus"></i> Add New Station
-                                </a>
+                        <a href="{{ route('stations.create') }}" title="Add New Station" class="btn btn-primary btn-sm"><i aria-hidden="true" class="fa fa-plus"></i> Add New Station
+                        </a>
                     </div>
                <br> <br> 
                <form>
@@ -24,11 +24,11 @@
                               <div class="form-group">
                                  <select class="form-control" name="format" id="format">
                                        <option value="">Select</option>
-                                       <option value="1" @if (old('format') == '1') selected="selected" @endif>Rock</option>
-                                       <option value="2" @if (old('format') == '2') selected="selected" @endif>Country</option>
-                                       <option value="3" @if (old('format') == '3') selected="selected" @endif>AC</option>
-                                       <option value="4" @if (old('format') == '4') selected="selected" @endif>CHR</option>
-                                       <option value="5" @if (old('format') == '5') selected="selected" @endif>News/Talk</option>
+                                       <option value="1" @if (request('format') == '1') selected="selected" @endif>Rock</option>
+                                       <option value="2" @if (request('format') == '2') selected="selected" @endif>Country</option>
+                                       <option value="3" @if (request('format') == '3') selected="selected" @endif>AC</option>
+                                       <option value="4" @if (request('format') == '4') selected="selected" @endif>CHR</option>
+                                       <option value="5" @if (request('format') == '5') selected="selected" @endif>News/Talk</option>
                                  </select>
                               </div>
                            </div>
@@ -38,15 +38,15 @@
                               <div class="form-group">
                                  <select class="form-control" name="call_letters" id="call_letters">
                                        <option value="">Sort by call letters</option>
-                                       <option value="1" @if (old('call_letters') == '1') selected="selected" @endif>Ascending</option>
-                                       <option value="2" @if (old('call_letters') == '2') selected="selected" @endif>Descending</option>
+                                       <option value="1" @if (request('call_letters') == '1') selected="selected" @endif>Ascending</option>
+                                       <option value="2" @if (request('call_letters') == '2') selected="selected" @endif>Descending</option>
                                  </select>
                               </div>
                            </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
-                                <input type="text" name="search" placeholder="Search..." class="form-control" data-toggle="tooltip" data-placement="top" title="" >
+                                <input type="text" name="search" placeholder="Search..." class="form-control" data-toggle="tooltip" value="{{request('search')}}" data-placement="top" title="" >
                            </div>
                         </div>
                         <div class="col-0">
@@ -97,8 +97,8 @@
                                  News/Talk
                               @endif
                            </td>
-                           <td>{{ $station->streaming_player }}</td>
-                           <td>{{ $station->website }}</td>
+                           <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
+                           <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td>
                            <td>{{ $station->phone }}</td>
                            <td>{{ $station->email }}</td>
                            <td>
