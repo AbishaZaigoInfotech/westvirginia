@@ -4,7 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Response;
 class StationRequest extends FormRequest
 {
     /**
@@ -66,4 +69,18 @@ class StationRequest extends FormRequest
             'logo.mimes' => 'Logo must be a file type:jpg,png',
         ];
     }
+
+        public function failedValidation(Validator $validator){
+            if(\Request::is('api/*')){
+                $data=response()->json($validator->errors(),422);
+                throw new HttpResponseException($data);
+            }
+            else{
+                return parent::failedValidation($validator);
+            }
+        
+            
+        }
+
+  
 }

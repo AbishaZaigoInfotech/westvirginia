@@ -55,6 +55,12 @@ class StationController extends Controller
         return redirect()->route('stations.index');
     }
 
+    public function show($id)
+    {
+        $station = Station::where('id', $id)->first();
+        return view('stations.show', compact('station'));
+    }
+
     public function edit($id)
     {
         $station = Station::where('id', $id)->first();

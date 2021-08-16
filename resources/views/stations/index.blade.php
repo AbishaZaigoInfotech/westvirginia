@@ -102,12 +102,25 @@
                            <td>{{ $station->phone }}</td>
                            <td>{{ $station->email }}</td>
                            <td>
-							         <a href="{{ route('stations.edit', $station->id) }}" title="Edit Station"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-pencil-square-o"></i></button></a>
-                              <form action="{{ route('stations.destroy', $station->id) }}" method="POST">
-                                 @csrf
-                                 @method('DELETE')
-                                 <button class="btn btn-danger btn-sm" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button>
-                              </form>
+                              <div class="row" style="width:150px;">
+                                 <div class="col-1">
+                                    <a href="{{ route('stations.show', $station->id) }}" title="Show Station"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
+                                 </div>
+                                 <div class="col-1">
+                                 </div>
+                                 <div class="col-1">
+                                    <a href="{{ route('stations.edit', $station->id) }}" title="Edit Station"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-pencil-square-o"></i></button></a>
+                                 </div>
+                                 <div class="col-1">
+                                 </div>
+                                 <div class="col-1">
+                                    <form action="{{ route('stations.destroy', $station->id) }}" method="POST">
+                                       @csrf
+                                       @method('DELETE')
+                                       <button class="btn btn-danger btn-sm" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button>
+                                    </form>
+                                 </div>
+                              </div>
                            </td>
                         </tr>
                         @empty

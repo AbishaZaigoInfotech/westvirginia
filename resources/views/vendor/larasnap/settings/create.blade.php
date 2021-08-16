@@ -108,6 +108,15 @@
                            @enderror 							
                         </div>
                      </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="sleep-time" class="control-label">Sleep Time</label> 
+                           <input name="sleep-time" type="time" id="sleep-time" class="form-control">
+                           @error('sleep-time')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 			
+                        </div>
+                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                            <input type="submit" value="Update" class="btn btn-primary">
