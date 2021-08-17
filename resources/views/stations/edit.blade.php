@@ -41,12 +41,9 @@
                         <div class="form-group">
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1"{{ $station->format == 1 ? 'selected' : '' }}>Rock</option>
-                            <option value="2"{{ $station->format == 2 ? 'selected' : '' }}>Country</option>
-                            <option value="3"{{ $station->format == 3 ? 'selected' : '' }}>AC</option>
-                            <option value="4"{{ $station->format == 4 ? 'selected' : '' }}>CHR</option>
-                            <option value="5"{{ $station->format == 5 ? 'selected' : '' }}>News/Talk</option>
+                              @foreach($categories as $category)
+                                 <option value="{{ $category->name }}" {{ $station->format == $category->name ? 'selected' : '' }}>{{ $category->label }}</option>
+                              @endforeach
                            </select>
                            @error('format')
                            <span class="text-danger">{{ $message }}</span>

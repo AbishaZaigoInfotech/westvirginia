@@ -30,7 +30,7 @@ return [
     |
     | Here you can specify general configs.
     |
-    */
+    */ 
     'general' => [
         'dashboard_route_name' => 'dashboard', //mandatory - update the dashboard route name correctly.
     ],
@@ -109,7 +109,8 @@ return [
         'date_time_format',
         'time_format',
         'entries_per_page',
-        'default_user_role'
+        'default_user_role',
+        'sleep_time'
     ],
     //add the setting 'name' which are related to attachements(image, video,...)
     'site_settings_attachemnt' => [

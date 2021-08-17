@@ -40,12 +40,9 @@
                         <div class="form-group">
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
-                            <option value="">Select</option>
-                            <option value="1" @if (old('format') == '1') selected="selected" @endif>Rock</option>
-                            <option value="2" @if (old('format') == '2') selected="selected" @endif>Country</option>
-                            <option value="3" @if (old('format') == '3') selected="selected" @endif>AC</option>
-                            <option value="4" @if (old('format') == '4') selected="selected" @endif>CHR</option>
-                            <option value="5" @if (old('format') == '5') selected="selected" @endif>News/Talk</option>
+                              @foreach($categories as $category)
+                                 <option value="{{ $category->name }}" @if (old('format') == "{{ $category->name }}") selected="selected" @endif>{{ $category->label }}</option>
+                              @endforeach
                            </select>
                            @error('format')
                            <span class="text-danger">{{ $message }}</span>

@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
+use App\Models\Station;
 use Illuminate\Http\Request;
 use App\Http\Requests\StationRequest;
-use App\Models\Station;
-use LaraSnap\LaravelAdmin\Models\Category;
 
-class StationController extends Controller
+class StationService
 {
-    //
     public function index(Request $request)
     {
-        $stations = Station::with('category');
+        $stations = Station::join('stations', 'categories.id', '=', 'stations.format');
         if($request->format){
             $stations->where('format', $request->format);
         }
@@ -27,9 +25,8 @@ class StationController extends Controller
                      ->orWhere('format','like','%'.$request->search.'%')
                      ->orWhere('phone','like','%'.$request->search.'%')
                      ->orWhere('email','like','%'.$request->search.'%');
-        }   
-        $stations = $stations->paginate(2);
-        return view('stations.index', compact('stations'));
+        } 
+        return $stations->get();
     }
 
     public function create()
@@ -54,20 +51,20 @@ class StationController extends Controller
             $station->logo = $image_name;
         }
         $station->save();
-        return redirect()->route('stations.index');
+        return $station;
     }
 
     public function show($id)
     {
         $station = Station::where('id', $id)->first();
-        return view('stations.show', compact('station'));
+        return $station;
     }
 
     public function edit($id)
     {
-        $categories = Category::all();
-        $station = Station::where('id', $id)->first();
-        return view('stations.edit', compact('station', 'categories'));
+        $station['stations'] = Station::where('id', $id)->first();
+        $station['categories'] = Category::all();
+        return $station;
     }
 
     public function update(StationRequest $request, $id)
@@ -86,12 +83,14 @@ class StationController extends Controller
             $station->logo = $image_name;
         }
         $station->save();
-        return redirect()->route('stations.index');
+        return $station;
     }
     public function destroy($id)
     {
         $station = Station::find($id);
         $station->delete();
-        return redirect()->route('stations.index');
+        return $station;
     }
 }
+
+?>

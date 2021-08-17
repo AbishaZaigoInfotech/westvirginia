@@ -94,7 +94,7 @@
                            @enderror 							
                         </div>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-4"> 
                         <div class="form-group">
                            <label for="default-user-role" class="control-label">Default User Role<small class="text-danger required">*</small></label> 
                            <select class="form-control ts"  name="default_user_role" id="default-user-role" >
@@ -111,8 +111,8 @@
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="sleep-time" class="control-label">Sleep Time</label> 
-                           <input name="sleep-time" type="time" id="sleep-time" class="form-control">
-                           @error('sleep-time')
+                           <input name="sleep_time" type="time" id="sleep-time" class="form-control" value="{{ old('sleep_time', $setting_db_values['sleep_time']) }}">
+                           @error('sleep_time')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 			
                         </div>

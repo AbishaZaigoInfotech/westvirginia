@@ -106,7 +106,7 @@ class ProjectSeeder extends Seeder
              $menuItem8->route  = "settings.create";
              $menuItem8->save(); 
              
-             Setting::whereIn('name', ['site_name', 'site_logo', 'admin_email', 'date_format', 'date_time_format', 'time_format', 'entries_per_page'])->delete();
+             Setting::whereIn('name', ['site_name', 'site_logo', 'admin_email', 'date_format', 'date_time_format', 'time_format', 'entries_per_page', 'sleep_time'])->delete();
         
              $settings = [
                  ['name' => 'site_name','value' => 'LaraSnap'],
@@ -117,6 +117,7 @@ class ProjectSeeder extends Seeder
                  ['name' => 'time_format','value' => 'h:i:s A'],
                  ['name' => 'entries_per_page','value' => '10'],
                  ['name' => 'default_user_role','value' => '0'],
+                 ['name' => 'sleep_time','value' => '10:54'],
              ];
              Setting::insert($settings);
     }

@@ -23,12 +23,9 @@
                            <div class="dropdown">
                               <div class="form-group">
                                  <select class="form-control" name="format" id="format">
-                                       <option value="">Select</option>
-                                       <option value="1" @if (request('format') == '1') selected="selected" @endif>Rock</option>
-                                       <option value="2" @if (request('format') == '2') selected="selected" @endif>Country</option>
-                                       <option value="3" @if (request('format') == '3') selected="selected" @endif>AC</option>
-                                       <option value="4" @if (request('format') == '4') selected="selected" @endif>CHR</option>
-                                       <option value="5" @if (request('format') == '5') selected="selected" @endif>News/Talk</option>
+                                    <option value="" selected>Select Format</option> 
+            
+                                 
                                  </select>
                               </div>
                            </div>
@@ -85,17 +82,7 @@
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
-                              @if($station->format=='1')
-                                 Rock
-                              @elseif($station->format=='2')
-                                 Country
-                              @elseif($station->format=='3')
-                                 AC
-                              @elseif($station->format=='4')
-                                 CHR
-                              @elseif($station->format=='5')
-                                 News/Talk
-                              @endif
+                           {{$station->format == 2 ? "Rock" : ($station->format == 3 ? "Country" : ($station->format == 4 ? "AC" : ($station->format == 5 ? "CHR" : ($station->format == 6 ? "News/Talk" : '-na-'))))}}
                            </td>
                            <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
                            <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td>
