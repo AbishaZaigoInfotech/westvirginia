@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +18,6 @@ Route::get('/', function () {
 });
 
 /** STATION ROUTES **/
-
 Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations.store', 'stations.update']], function(){
     Route::get('/',[App\Http\Controllers\StationController::class, 'index'])->name('stations.index');
     Route::get('create',[App\Http\Controllers\StationController::class, 'create'])->name('stations.create');
@@ -29,8 +27,34 @@ Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations
     Route::put('{station}',[App\Http\Controllers\StationController::class, 'update'])->name('stations.update');
     Route::delete('{station}',[App\Http\Controllers\StationController::class, 'destroy'])->name('stations.destroy');
 });
-
 /** STATION ROUTES **/
+
+/** SETTING ROUTES **/
+    Route::group(['prefix' => 'settings', 'exculde' => ['settings.store']], function(){
+        Route::get('/',[App\Http\Controllers\SiteSettingController::class, 'create'])->name('settings.create');
+        Route::post('/',[App\Http\Controllers\SiteSettingController::class, 'store'])->name('settings.store');
+    });	
+/** SETTING ROUTES **/
+
+/** CATEGORY ROUTES **/
+Route::group(['prefix' => 'categories', 'exculde' => ['p_categories.filter', 'p_categories.store', 'p_categories.update', 'categories.filter', 'categories.store', 'categories.update']], function(){
+    Route::get('/',[App\Http\Controllers\CategoryParentController::class, 'index'])->name('p_categories.index');
+    Route::post('/',[App\Http\Controllers\CategoryParentController::class, 'index'])->name('p_categories.filter');
+    Route::get('create',[App\Http\Controllers\CategoryParentController::class, 'create'])->name('p_categories.create');
+    Route::post('create',[App\Http\Controllers\CategoryParentController::class, 'store'])->name('p_categories.store');
+    Route::get('{p_category}/edit',[App\Http\Controllers\CategoryParentController::class, 'edit'])->name('p_categories.edit');
+    Route::put('{p_category}',[App\Http\Controllers\CategoryParentController::class, 'update'])->name('p_categories.update');
+    Route::delete('{p_category}',[App\Http\Controllers\CategoryParentController::class, 'destroy'])->name('p_categories.destroy');
+    
+    Route::get('{p_category}',[App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
+    Route::post('{p_category}',[App\Http\Controllers\CategoryController::class, 'index'])->name('categories.filter');
+    Route::get('{p_category}/create',[App\Http\Controllers\CategoryController::class, 'create'])->name('categories.create');
+    Route::post('{p_category}/create',[App\Http\Controllers\CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/{p_category}/{category}/edit',[App\Http\Controllers\CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('{p_category}/{category}',[App\Http\Controllers\CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('{p_category}/{category}',[App\Http\Controllers\CategoryController::class, 'destroy'])->name('categories.destroy');
+});
+/** CATEGORY ROUTES **/
 
 Auth::routes();
 
@@ -143,30 +167,30 @@ Route::group(['namespace' => '\LaraSnap\LaravelAdmin\Controllers','prefix' => 'a
         /** MENU ROUTES **/
         
         /** CATEGORY ROUTES **/
-        Route::group(['prefix' => 'categories', 'exculde' => ['p_categories.filter', 'p_categories.store', 'p_categories.update', 'categories.filter', 'categories.store', 'categories.update']], function(){
-            Route::get('/','CategoryParentController@index')->name('p_categories.index');
-            Route::post('/','CategoryParentController@index')->name('p_categories.filter');
-            Route::get('create','CategoryParentController@create')->name('p_categories.create');
-            Route::post('create','CategoryParentController@store')->name('p_categories.store');
-            Route::get('{p_category}/edit','CategoryParentController@edit')->name('p_categories.edit');
-            Route::put('{p_category}','CategoryParentController@update')->name('p_categories.update');
-            Route::delete('{p_category}','CategoryParentController@destroy')->name('p_categories.destroy');
+        // Route::group(['prefix' => 'categories', 'exculde' => ['p_categories.filter', 'p_categories.store', 'p_categories.update', 'categories.filter', 'categories.store', 'categories.update']], function(){
+        //     Route::get('/','CategoryParentController@index')->name('p_categories.index');
+        //     Route::post('/','CategoryParentController@index')->name('p_categories.filter');
+        //     Route::get('create','CategoryParentController@create')->name('p_categories.create');
+        //     Route::post('create','CategoryParentController@store')->name('p_categories.store');
+        //     Route::get('{p_category}/edit','CategoryParentController@edit')->name('p_categories.edit');
+        //     Route::put('{p_category}','CategoryParentController@update')->name('p_categories.update');
+        //     Route::delete('{p_category}','CategoryParentController@destroy')->name('p_categories.destroy');
             
-            Route::get('{p_category}','CategoryController@index')->name('categories.index');
-            Route::post('{p_category}','CategoryController@index')->name('categories.filter');
-            Route::get('{p_category}/create','CategoryController@create')->name('categories.create');
-            Route::post('{p_category}/create','CategoryController@store')->name('categories.store');
-            Route::get('/{p_category}/{category}/edit','CategoryController@edit')->name('categories.edit');
-            Route::put('{p_category}/{category}','CategoryController@update')->name('categories.update');
-            Route::delete('{p_category}/{category}','CategoryController@destroy')->name('categories.destroy');
-        });
+        //     Route::get('{p_category}','CategoryController@index')->name('categories.index');
+        //     Route::post('{p_category}','CategoryController@index')->name('categories.filter');
+        //     Route::get('{p_category}/create','CategoryController@create')->name('categories.create');
+        //     Route::post('{p_category}/create','CategoryController@store')->name('categories.store');
+        //     Route::get('/{p_category}/{category}/edit','CategoryController@edit')->name('categories.edit');
+        //     Route::put('{p_category}/{category}','CategoryController@update')->name('categories.update');
+        //     Route::delete('{p_category}/{category}','CategoryController@destroy')->name('categories.destroy');
+        // });
         /** CATEGORY ROUTES **/
         
         /** SETTING ROUTES **/
-        Route::group(['prefix' => 'settings', 'exculde' => ['settings.store']], function(){
-            Route::get('/','SiteSettingController@create')->name('settings.create');
-            Route::post('/','SiteSettingController@store')->name('settings.store');
-        });	
+        // Route::group(['prefix' => 'settings', 'exculde' => ['settings.store']], function(){
+        //     Route::get('/','SiteSettingController@create')->name('settings.create');
+        //     Route::post('/','SiteSettingController@store')->name('settings.store');
+        // });	
         /** SETTING ROUTES **/
             
         /** DOCUMENT ROUTES **/

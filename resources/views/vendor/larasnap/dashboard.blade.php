@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <!-- <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-blue">
                 <div class="inner">
                     <h3> {{ $rolesCount }} </h3>
@@ -49,7 +49,7 @@
                     <i class="fa fa-desktop"></i>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- Page Content End-->				  

@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Services\API;
+
+use App\Models\Station;
+use Illuminate\Http\Request;
+use App\Http\Requests\StationRequest;
+
+class StationService
+{
+    public function index(Request $request)
+    {
+        try{
+            $limit = request('limit') ? request('limit') : config('stations.pageLimit');
+            $stations = Station::with('category');
+            if($request->format){
+                $stations->where('format', $request->format);
+            }
+            if($request->status!=''){
+                $stations->where('status', $request->status);
+            }
+            if($request->call_letters==1){
+                $stations->orderBy('call_letters', 'asc');
+            }elseif($request->call_letters==2){
+                $stations->orderBy('call_letters', 'desc');
+            }
+            if($request->search) {
+                $stations->where('call_letters','like','%'.$request->search.'%')
+                        ->orWhere('frequency','like','%'.$request->search.'%')
+                        ->orWhere('format','like','%'.$request->search.'%')
+                        ->orWhere('phone','like','%'.$request->search.'%')
+                        ->orWhere('email','like','%'.$request->search.'%');
+            } 
+            return $stations->cursorPaginate($limit);
+        } catch (\Exception $e) {
+            return apiResponse("Stations are not listed", 400, (object)[]);
+        }
+    }
+}
+
+?>

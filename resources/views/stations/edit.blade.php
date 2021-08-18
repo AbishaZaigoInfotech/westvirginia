@@ -42,10 +42,22 @@
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
                               @foreach($categories as $category)
-                                 <option value="{{ $category->name }}" {{ $station->format == $category->name ? 'selected' : '' }}>{{ $category->label }}</option>
+                                 <option value="{{ $category->id }}" {{ $station->format == $category->id ? 'selected' : '' }}>{{ $category->label }}</option>
                               @endforeach
                            </select>
                            @error('format')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="status" class="control-label">Status<small class="text-danger required">*</small></label> 
+                           <select name="status" id="status" class="form-control">
+                                 <option value="1" {{ $station->status == "1" ? 'selected' : '' }}>Active</option>
+                                 <option value="0" {{ $station->status == "0" ? 'selected' : '' }}>Inactive</option>
+                           </select>
+                           @error('status')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							
                         </div>

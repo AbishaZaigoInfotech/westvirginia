@@ -19,18 +19,19 @@
                <br> <br> 
                <form>
                      <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                            <div class="dropdown">
                               <div class="form-group">
-                                 <select class="form-control" name="format" id="format">
-                                    <option value="" selected>Select Format</option> 
-            
-                                 
-                                 </select>
+                                 <!-- <select class="form-control" name="format" id="format">
+                                    <option value="" selected>Select Format</option>
+                                    @foreach($categories as $category)
+                                       <option value="{{$category->id}}" @if (request('format') == $category->id) selected="selected" @endif> {{$category->label}}</option>
+                                    @endforeach
+                                 </select> -->
                               </div>
                            </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                            <div class="dropdown">
                               <div class="form-group">
                                  <select class="form-control" name="call_letters" id="call_letters">
@@ -42,6 +43,17 @@
                            </div>
                         </div>
                         <div class="col-3">
+                           <div class="dropdown">
+                              <div class="form-group">
+                                 <select class="form-control" name="status" id="status">
+                                       <option value="">Sort by status</option>
+                                       <option value="1" @if (request('status') == '1') selected="selected" @endif>Active</option>
+                                       <option value="0" @if (request('status') == '0') selected="selected" @endif>Inactive</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-2">
                             <div class="form-group">
                                 <input type="text" name="search" placeholder="Search..." class="form-control" data-toggle="tooltip" value="{{request('search')}}" data-placement="top" title="" >
                            </div>
@@ -61,14 +73,15 @@
                      <thead>
                         <tr>
                            <th>ID</th>
-                           <th>Logo</th>
+                           <!-- <th>Logo</th> -->
                            <th>Call Letters</th>
                            <th>Frequency</th>
                            <th>Format</th>
-                           <th>Streaming Player</th>
-                           <th>Website</th>
+                           <!-- <th>Streaming Player</th>
+                           <th>Website</th> -->
                            <th>Phone</th>
                            <th>Email</th>
+                           <th>Status</th>
                            <th>Actions</th>
                         </tr>
                      </thead>
@@ -76,18 +89,25 @@
                         @forelse($stations as $station)
                         <tr>
                            <td>{{ $station->id }}</td>
-                           <td>
-                              <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;" />
-                           </td>
+                           <!-- <td>
+                              <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>
+                           </td> -->
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
                            {{$station->format == 2 ? "Rock" : ($station->format == 3 ? "Country" : ($station->format == 4 ? "AC" : ($station->format == 5 ? "CHR" : ($station->format == 6 ? "News/Talk" : '-na-'))))}}
                            </td>
-                           <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
-                           <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td>
+                           <!-- <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
+                           <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td> -->
                            <td>{{ $station->phone }}</td>
                            <td>{{ $station->email }}</td>
+                           <td>
+                           @if($station->status == 1)
+                              <span class="badge badge-success">Active</span>
+                           @elseif($station->status == 0)
+                              <span class="badge badge-danger">Inactive</span>
+                           @endif
+                           </td>
                            <td>
                               <div class="row" style="width:150px;">
                                  <div class="col-1">

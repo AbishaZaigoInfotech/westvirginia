@@ -10,29 +10,31 @@ class StationService
 {
     public function index(Request $request)
     {
-        $stations = Station::join('stations', 'categories.id', '=', 'stations.format');
-        if($request->format){
-            $stations->where('format', $request->format);
+        try{
+            $limit = request('limit') ? request('limit') : config('stations.pageLimit');
+            $stations = Station::with('category');
+            if($request->format){
+                $stations->where('format', $request->format);
+            }
+            if($request->status!=''){
+                $stations->where('status', $request->status);
+            }
+            if($request->call_letters==1){
+                $stations->orderBy('call_letters', 'asc');
+            }elseif($request->call_letters==2){
+                $stations->orderBy('call_letters', 'desc');
+            }
+            if($request->search) {
+                $stations->where('call_letters','like','%'.$request->search.'%')
+                        ->orWhere('frequency','like','%'.$request->search.'%')
+                        ->orWhere('format','like','%'.$request->search.'%')
+                        ->orWhere('phone','like','%'.$request->search.'%')
+                        ->orWhere('email','like','%'.$request->search.'%');
+            } 
+            return $stations->paginate($limit);
+        } catch (\Exception $e) {
+            return apiResponse("Stations are not listed", 400, (object)[]);
         }
-        if($request->call_letters==1){
-            $stations->orderBy('call_letters', 'asc');
-        }elseif($request->call_letters==2){
-            $stations->orderBy('call_letters', 'desc');
-        }
-        if($request->search) {
-            $stations->where('call_letters','like','%'.$request->search.'%')
-                     ->orWhere('frequency','like','%'.$request->search.'%')
-                     ->orWhere('format','like','%'.$request->search.'%')
-                     ->orWhere('phone','like','%'.$request->search.'%')
-                     ->orWhere('email','like','%'.$request->search.'%');
-        } 
-        return $stations->get();
-    }
-
-    public function create()
-    {
-        $categories = Category::all();
-        return view('stations.create', compact('categories'));
     }
 
     public function store(StationRequest $request)
@@ -60,13 +62,6 @@ class StationService
         return $station;
     }
 
-    public function edit($id)
-    {
-        $station['stations'] = Station::where('id', $id)->first();
-        $station['categories'] = Category::all();
-        return $station;
-    }
-
     public function update(StationRequest $request, $id)
     {
         $station = Station::find($id);
@@ -91,6 +86,7 @@ class StationService
         $station->delete();
         return $station;
     }
+
 }
 
 ?>

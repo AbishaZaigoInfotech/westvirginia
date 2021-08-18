@@ -11,7 +11,7 @@
 	@if(count($segments) == 0)
 			<li class="breadcrumb-item active">Dashboard</li>
 	@else
-			<li class="breadcrumb-item active">
+			<!-- <li class="breadcrumb-item active">
 				<a href="{{ $url }}">Dashboard</a>
 			</li>
 			@foreach ($segments as $segment)
@@ -25,7 +25,7 @@
 				@else
 					<li class="breadcrumb-item">{{ ucfirst($segment) }}</li>
 				@endif
-			@endforeach
+			@endforeach -->
 	@endif
 	</ol>
 </nav>
