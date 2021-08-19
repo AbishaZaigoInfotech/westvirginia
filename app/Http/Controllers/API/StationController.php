@@ -20,11 +20,17 @@ class StationController extends Controller
 
     public function index(Request $request)
     {
+        
             $stations = $this->stationService->index($request);
-            $stationDetail['stations'] = StationCollection::collection($stations);
-            $stationDetail['sleep_time'] = Setting::where('name', 'sleep_time')->first()->value;
-            $stationDetail['next_links'] = $stations->nextPageUrl();
-            $stationDetail['previous_links'] = $stations->previousPageUrl();
-            return apiResponse("Stations listed sucessfully", 200, $stationDetail);
+            if($stations){
+                $setting = Setting::where('name', 'sleep_time')->first()->value;
+                $stationDetail['stations'] = StationCollection::collection($stations);
+                $stationDetail['sleep_time'] = $setting ? $setting : '';
+                $stationDetail['next_links'] = (string)$stations->nextPageUrl();
+                $stationDetail['previous_links'] = (string)$stations->previousPageUrl();
+                return apiResponse("Stations listed sucessfully", 200, $stationDetail);
+            }else{
+                return apiResponse("Stations are not listed", 400, (object)[]);
+            }
     }
 }

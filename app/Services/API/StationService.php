@@ -32,7 +32,7 @@ class StationService
             } 
             return $stations->cursorPaginate($limit);
         } catch (\Exception $e) {
-            return apiResponse("Stations are not listed", 400, (object)[]);
+            return false;
         }
     }
 }
