@@ -46,6 +46,7 @@ class StationService
         $station->website = $request->website;
         $station->phone = $request->phone;
         $station->email = $request->email;
+        $station->status = $request->status;
         if($request->logo!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->logo->extension();
             $request->logo->storeAs('/public/images/', $image_name);
@@ -71,6 +72,7 @@ class StationService
         $station->website = $request->website;
         $station->phone = $request->phone;
         $station->email = $request->email;
+        $station->status = $request->status;
         if($request->logo!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->logo->extension();
             $request->logo->storeAs('/public/images/', $image_name);
