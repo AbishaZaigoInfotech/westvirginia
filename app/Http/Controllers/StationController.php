@@ -37,12 +37,13 @@ class StationController extends Controller
 
     public function show($id)
     {
-        $stations = $this->stationService->show($id);
+        $station = $this->stationService->show($id);
         return view('stations.show', compact('station'));
     }
 
     public function edit($id)
     {
+        
         $categories = Category::all();
         $station = Station::where('id', $id)->first();
         return view('stations.edit', compact('station', 'categories'));
@@ -53,9 +54,22 @@ class StationController extends Controller
         $stations = $this->stationService->update($request, $id);
         return redirect()->route('stations.index');
     }
+
     public function destroy($id)
     {
         $stations = $this->stationService->destroy($id);
         return redirect()->route('stations.index');
     }
+
+    public function deleteImage($id)
+    {
+        $station = Station::find($id);
+        $path = 'storage/images/';
+		if(isset($station->logo) && $station->logo!=='' && $station->logo !== null ) {
+			$station->logo=null;
+            $station->save();
+            return redirect()->back();
+		}
+    }
 }
+

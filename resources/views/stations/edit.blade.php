@@ -15,7 +15,7 @@
                <a href="{{ route('stations.index') }}" title="Back to Station List" class="btn btn-warning btn-sm"><i aria-hidden="true" class="fa fa-arrow-left"></i> Back to Station List
                </a> 
                <br> <br> 
-               <form method="POST" action="{{ route('stations.update', $station->id) }}" class="form-horizontal" autocomplete="off">
+               <form method="POST" action="{{ route('stations.update', $station->id) }}" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 			   @csrf
 			   @method('PUT')
                <div class="row">
@@ -42,7 +42,7 @@
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
                               @foreach($categories as $category)
-                                 <option value="{{ $category->id }}" {{ $station->format == $category->id ? 'selected' : '' }}>{{ $category->label }}</option>
+                                 <option value="{{ $category->id }}" {{ old('format') == $category->id ? 'selected' : ($station->format == $category->id ? 'selected' : '' )}}>{{ $category->label }}</option>
                               @endforeach
                            </select>
                            @error('format')
@@ -102,6 +102,9 @@
                         <div class="form-group">
                            <label for="logo" class="control-label">Station Logo<small class="text-danger required">*</small></label> 
                            <input name="logo" type="file" id="logo" class="form-control" value="{{ old('logo') }}">
+                           <?php $path = 'storage/images/'; ?>
+                              <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
+                              <a href="{{URL::to('/delete/image/'. $station->id)}}">Delete</a>
                            @error('logo')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							

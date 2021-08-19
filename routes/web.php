@@ -18,15 +18,17 @@ Route::get('/', function () {
 });
 
 /** STATION ROUTES **/
-Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations.store', 'stations.update']], function(){
+Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations.store', 'stations.update', 'stations.deleteImage']], function(){
     Route::get('/',[App\Http\Controllers\StationController::class, 'index'])->name('stations.index');
     Route::get('create',[App\Http\Controllers\StationController::class, 'create'])->name('stations.create');
     Route::post('create',[App\Http\Controllers\StationController::class, 'store'])->name('stations.store');
     Route::get('{station}/show',[App\Http\Controllers\StationController::class, 'show'])->name('stations.show');
     Route::get('{station}/edit',[App\Http\Controllers\StationController::class, 'edit'])->name('stations.edit');
-    Route::put('{station}',[App\Http\Controllers\StationController::class, 'update'])->name('stations.update');
+    Route::put('update/{station}',[App\Http\Controllers\StationController::class, 'update'])->name('stations.update');
     Route::delete('{station}',[App\Http\Controllers\StationController::class, 'destroy'])->name('stations.destroy');
 });
+Route::get('delete/image/{id}',[App\Http\Controllers\StationController::class, 'deleteImage'])->name('stations.deleteImage');
+
 /** STATION ROUTES **/
 
 /** SETTING ROUTES **/

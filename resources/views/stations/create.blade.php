@@ -40,8 +40,9 @@
                         <div class="form-group">
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
                            <select name="format" id="format" class="form-control">
+                              <option value="">Select</option>
                               @foreach($categories as $category)
-                                 <option value="{{ $category->id }}" @if (old('format') == "{{ $category->id }}") selected="selected" @endif>{{ $category->label }}</option>
+                                 <option value="{{ $category->id }}" @if (old('format') == "$category->id") selected="selected" @endif>{{ $category->label }}</option>
                               @endforeach
                            </select>
                            @error('format')

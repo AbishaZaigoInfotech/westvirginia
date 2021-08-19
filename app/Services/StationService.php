@@ -19,19 +19,18 @@ class StationService
             if($request->status!=''){
                 $stations->where('status', $request->status);
             }
-            if($request->call_letters==1){
+            if($request->call_letters=='asc'){
                 $stations->orderBy('call_letters', 'asc');
-            }elseif($request->call_letters==2){
+            }elseif($request->call_letters=='desc'){
                 $stations->orderBy('call_letters', 'desc');
             }
             if($request->search) {
                 $stations->where('call_letters','like','%'.$request->search.'%')
                         ->orWhere('frequency','like','%'.$request->search.'%')
-                        ->orWhere('format','like','%'.$request->search.'%')
                         ->orWhere('phone','like','%'.$request->search.'%')
                         ->orWhere('email','like','%'.$request->search.'%');
             } 
-            return $stations->paginate($limit);
+            return $stations->orderBy('id', 'desc')->paginate($limit);
         } catch (\Exception $e) {
             return apiResponse("Stations are not listed", 400, (object)[]);
         }
@@ -82,11 +81,11 @@ class StationService
     }
     public function destroy($id)
     {
+        dd('destroy');
         $station = Station::find($id);
         $station->delete();
         return $station;
     }
-
 }
 
 ?>

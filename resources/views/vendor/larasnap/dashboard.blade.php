@@ -7,10 +7,10 @@
 <div class="container">
    <div class="row admin">
         <div class="col-lg-3 col-sm-6">
-            <div class="card-box bg-green">
+            <div class="card-box bg-green"> 
                 <div class="inner">
-                    <h3> {{ $usersActiveCount }} </h3>
-                    <h5> Active Users </h5>
+                    <h3> {{ $stationsActiveCount }} </h3>
+                    <h5> Active Stations </h5>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users" aria-hidden="true"></i>
@@ -20,8 +20,8 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-red">
                 <div class="inner">
-                    <h3> {{ $usersInactiveCount }} </h3>
-                    <h5> Inactive Users </h5>
+                    <h3> {{ $stationsInactiveCount }} </h3>
+                    <h5> Inactive Stations </h5>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users" aria-hidden="true"></i>

@@ -30,11 +30,12 @@ class StationRequest extends FormRequest
         $imageValidation=['nullable'];
         if($this->route('station')){
             if(!empty(FormRequest::all()['logo'])){
-                $imageValidation=['required','mimes:jpg,png'];
+                $imageValidation=['nullable','required','mimes:jpg,png'];
             }
         }else{
-            $imageValidation=['required','mimes:jpg,png'];
+            $imageValidation=['nullable','required','mimes:jpg,png'];
         }
+
         return [
             //
             'call_letters' => 'required',

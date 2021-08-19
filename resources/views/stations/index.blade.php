@@ -22,12 +22,12 @@
                         <div class="col-3">
                            <div class="dropdown">
                               <div class="form-group">
-                                 <!-- <select class="form-control" name="format" id="format">
-                                    <option value="" selected>Select Format</option>
+                                 <select name="format" id="format" class="form-control">
+                                    <option value="">Sort by format</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}" @if (request('format') == $category->id) selected="selected" @endif> {{$category->label}}</option>
+                                       <option value="{{ $category->id }}" @if (request('format') == "$category->id") selected="selected" @endif>{{ $category->label }}</option>
                                     @endforeach
-                                 </select> -->
+                                 </select>
                               </div>
                            </div>
                         </div>
@@ -36,8 +36,8 @@
                               <div class="form-group">
                                  <select class="form-control" name="call_letters" id="call_letters">
                                        <option value="">Sort by call letters</option>
-                                       <option value="1" @if (request('call_letters') == '1') selected="selected" @endif>Ascending</option>
-                                       <option value="2" @if (request('call_letters') == '2') selected="selected" @endif>Descending</option>
+                                       <option value="asc" @if (request('call_letters') == 'asc') selected="selected" @endif>Ascending</option>
+                                       <option value="desc" @if (request('call_letters') == 'desc') selected="selected" @endif>Descending</option>
                                  </select>
                               </div>
                            </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-2">
                             <div class="form-group">
-                                <input type="text" name="search" placeholder="Search..." class="form-control" data-toggle="tooltip" value="{{request('search')}}" data-placement="top" title="" >
+                                <input type="text" name="search" placeholder="Search..." class="form-control" value="{{request('search')}}" data-toggle="tooltip" data-placement="top" title="Search by call letters, frequency, phone, email">
                            </div>
                         </div>
                         <div class="col-0">
@@ -86,16 +86,17 @@
                         </tr>
                      </thead>
                      <tbody>
+                     <?php $id= 1; ?>
                         @forelse($stations as $station)
                         <tr>
-                           <td>{{ $station->id }}</td>
+                           <td>{{ $id }}</td>
                            <!-- <td>
                               <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>
                            </td> -->
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
-                           {{$station->format == 2 ? "Rock" : ($station->format == 3 ? "Country" : ($station->format == 4 ? "AC" : ($station->format == 5 ? "CHR" : ($station->format == 6 ? "News/Talk" : '-na-'))))}}
+                           {{$station->format == 1 ? "Rock" : ($station->format == 2 ? "Country" : ($station->format == 3 ? "AC" : ($station->format == 4 ? "CHR" : ($station->format == 5 ? "News/Talk" : '-na-'))))}}
                            </td>
                            <!-- <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
                            <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td> -->
@@ -111,25 +112,28 @@
                            <td>
                               <div class="row" style="width:150px;">
                                  <div class="col-1">
-                                    <a href="{{ route('stations.show', $station->id) }}" title="Show Station"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
+                                 @canAccess('stations.show')
+                                    <a href="{{ route('stations.show', $station->id) }}" title="Show Station"><button class="btn btn-info btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
+                                 @endcanAccess
                                  </div>
                                  <div class="col-1">
                                  </div>
                                  <div class="col-1">
+                                 @canAccess('stations.edit')
                                     <a href="{{ route('stations.edit', $station->id) }}" title="Edit Station"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-pencil-square-o"></i></button></a>
+                                 @endcanAccess
                                  </div>
                                  <div class="col-1">
                                  </div>
                                  <div class="col-1">
-                                    <form action="{{ route('stations.destroy', $station->id) }}" method="POST">
-                                       @csrf
-                                       @method('DELETE')
-                                       <button class="btn btn-danger btn-sm" type="submit"><i aria-hidden="true" class="fa fa-trash"></i></button>
-                                    </form>
+                                 @canAccess('stations.destroy')
+							            <a href="#" onclick="return individualDelete({{ $station->id}})" title="delete station"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
+                                 @endcanAccess
                                  </div>
                               </div>
                            </td>
                         </tr>
+                        <?php $id++; ?>
                         @empty
                         <tr>
                            <td class="text-center" colspan="12">No Station found!</td>

@@ -69,15 +69,17 @@ class ProjectSeeder extends Seeder
  
          
          //Screen Seed & Role Screen Mapping Seed
-         Screen::whereIn('name', ['stations.index', 'stations.create', 'stations.edit', 'stations.show', 'stations.destroy', 'settings.create'])->delete();
+         Screen::whereIn('name', ['stations.index', 'stations.create', 'stations.edit', 'stations.show', 'stations.destroy', 'settings.create', 'stations.deleteImage'])->delete();
          
          $screens = [
              ['name' => 'stations.index','label' => 'Station List', 'module_id' => $module11->id],
              ['name' => 'stations.create','label' => 'Station Create', 'module_id' => $module11->id],
              ['name' => 'stations.edit','label' => 'Station Edit', 'module_id' => $module11->id],
              ['name' => 'stations.show','label' => 'Station Show', 'module_id' => $module11->id],
+             ['name' => 'stations.deleteImage','label' => 'Station Delete Image', 'module_id' => $module11->id],
              ['name' => 'stations.destroy','label' => 'Station Delete', 'module_id' => $module11->id],
              ['name' => 'settings.create','label' => 'Settings', 'module_id' => $module9->id],
+             
             ];
          
          foreach ($screens as $screen){
