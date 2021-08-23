@@ -29,6 +29,18 @@
                      </div>
                      <div class="col-md-4">
                         <div class="form-group">
+                           <label for="status" class="control-label">Status<small class="text-danger required">*</small></label> 
+                           <select name="status" id="status" class="form-control">
+                              <option value="1">Active</option>
+                              <option value="0">Inactive</option>
+                           </select>
+                           @error('status')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
                            <label for="image" class="control-label">Promo Image</label> 
                            <input name="image" type="file" id="image" class="form-control" value="{{ old('image') }}">
                            @error('image')

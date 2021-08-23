@@ -27,6 +27,7 @@
                            <th>ID</th>
                            <th>Promo Title</th>
                            <th>Promo Image</th>
+                           <th>Status</th>
                            <th>Actions</th>
                         </tr>
                      </thead>
@@ -38,6 +39,13 @@
                            <td>{{ $promo->title }}</td>
                            <td>
                               <img src="{{asset('storage/images/'.$promo->image)}}" style="width:50px; height=50px;"></img>
+                           </td>
+                           <td>
+                              @if($promo->status == 1)
+                                 <span class="badge badge-success">Active</span>
+                              @elseif($promo->status == 0)
+                                 <span class="badge badge-danger">Inactive</span>
+                              @endif
                            </td>
                            <td>
                               <div class="row" style="width:150px;">

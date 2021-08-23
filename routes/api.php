@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\StationController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\PromoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ use App\Http\Controllers\API\CategoryController;
 
 Route::resource('stations', StationController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('promos', PromoController::class);

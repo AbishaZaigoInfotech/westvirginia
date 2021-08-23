@@ -1,7 +1,7 @@
 <?php
     return [
         
-            "pageLimit" => 10,
+            "pageLimit" => 24,
             'uploads' => [
                 'user' => [
                     'path' => 'public/upload/user/profile',

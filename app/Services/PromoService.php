@@ -19,6 +19,7 @@ class PromoService
     {
         $promo = new Promo;
         $promo->title = $request->title;
+        $promo->status = $request->status;
         if($request->image!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->image->extension();
             $request->image->storeAs('/public/images/', $image_name);
@@ -38,6 +39,7 @@ class PromoService
     {
         $promo = Promo::find($id);
         $promo->title = $request->title;
+         $promo->status = $request->status;
         if($request->image!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->image->extension();
             $request->image->storeAs('/public/images/', $image_name);
