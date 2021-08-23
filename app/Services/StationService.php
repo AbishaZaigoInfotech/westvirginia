@@ -10,30 +10,26 @@ class StationService
 {
     public function index(Request $request)
     {
-        try{
-            $limit = request('limit') ? request('limit') : config('stations.pageLimit');
-            $stations = Station::with('category');
-            if($request->format){
-                $stations->where('format', $request->format);
-            }
-            if($request->status!=''){
-                $stations->where('status', $request->status);
-            }
-            if($request->call_letters=='asc'){
-                $stations->orderBy('call_letters', 'asc');
-            }elseif($request->call_letters=='desc'){
-                $stations->orderBy('call_letters', 'desc');
-            }
-            if($request->search) {
-                $stations->where('call_letters','like','%'.$request->search.'%')
-                        ->orWhere('frequency','like','%'.$request->search.'%')
-                        ->orWhere('phone','like','%'.$request->search.'%')
-                        ->orWhere('email','like','%'.$request->search.'%');
-            } 
-            return $stations->orderBy('id', 'desc')->paginate($limit);
-        } catch (\Exception $e) {
-            return apiResponse("Stations are not listed", 400, (object)[]);
+        $limit = request('limit') ? request('limit') : config('stations.pageLimit');
+        $stations = Station::with('category');
+        if($request->format){
+            $stations->where('format', $request->format);
         }
+        if($request->status!=''){
+            $stations->where('status', $request->status);
+        }
+        if($request->call_letters=='asc'){
+            $stations->orderBy('call_letters', 'asc');
+        }elseif($request->call_letters=='desc'){
+            $stations->orderBy('call_letters', 'desc');
+        }
+        if($request->search) {
+            $stations->where('call_letters','like','%'.$request->search.'%')
+                    ->orWhere('frequency','like','%'.$request->search.'%')
+                    ->orWhere('phone','like','%'.$request->search.'%')
+                    ->orWhere('email','like','%'.$request->search.'%');
+        } 
+        return $stations->orderBy('id', 'desc')->paginate($limit);
     }
 
     public function store(StationRequest $request)
@@ -83,7 +79,6 @@ class StationService
     }
     public function destroy($id)
     {
-        dd('destroy');
         $station = Station::find($id);
         $station->delete();
         return $station;

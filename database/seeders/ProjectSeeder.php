@@ -105,7 +105,7 @@ class ProjectSeeder extends Seeder
              $menuItem11->target = "_self";
              $menuItem11->route  = "stations.index";
              $menuItem11->save(); 
-             
+                          
              $menuItem8 = new MenuItem;
              $menuItem8->menu_id  = 1;
              $menuItem8->title  = "Settings";
