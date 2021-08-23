@@ -10,6 +10,7 @@
             <div class="card-box bg-green"> 
                 <div class="inner">
                     <h5> Active Stations </h5>
+                    <h5>stationsActiveCount</h5>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users" aria-hidden="true"></i>
