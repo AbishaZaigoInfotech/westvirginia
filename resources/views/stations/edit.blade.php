@@ -100,7 +100,7 @@
                      </div>
                      <div class="col-md-4">
                         <div class="form-group">
-                           <label for="logo" class="control-label">Station Logo<small class="text-danger required">*</small></label> 
+                           <label for="logo" class="control-label">Station Logo</label> 
                            <input name="logo" type="file" id="logo" class="form-control" value="{{ old('logo') }}">
                            <?php $path = 'storage/images/'; ?>
                               <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
