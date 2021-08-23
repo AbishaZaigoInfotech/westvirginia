@@ -57,7 +57,7 @@ class ProjectSeeder extends Seeder
          $user->assignRole($role->id);
 
          //Module
-         Module::whereIn('label', ['Station Management'])->delete();
+         Module::whereIn('label', ['Station Management', 'Promo Management'])->delete();
          
          $module11 = new Module;
          $module11->label = 'Station Management';
@@ -66,10 +66,13 @@ class ProjectSeeder extends Seeder
          $module9 = new Module;
          $module9->label = 'Settings';
          $module9->save(); 
- 
+
+         $module12 = new Module;
+         $module12->label = 'Promo Management';
+         $module12->save();
          
          //Screen Seed & Role Screen Mapping Seed
-         Screen::whereIn('name', ['stations.index', 'stations.create', 'stations.edit', 'stations.show', 'stations.destroy', 'settings.create', 'stations.deleteImage'])->delete();
+         Screen::whereIn('name', ['stations.index', 'stations.create', 'stations.edit', 'stations.show', 'stations.destroy', 'settings.create', 'stations.deleteImage', 'promos.index', 'promos.create', 'promos.edit', 'promos.show', 'promos.destroy'])->delete();
          
          $screens = [
              ['name' => 'stations.index','label' => 'Station List', 'module_id' => $module11->id],
@@ -79,7 +82,11 @@ class ProjectSeeder extends Seeder
              ['name' => 'stations.deleteImage','label' => 'Station Delete Image', 'module_id' => $module11->id],
              ['name' => 'stations.destroy','label' => 'Station Delete', 'module_id' => $module11->id],
              ['name' => 'settings.create','label' => 'Settings', 'module_id' => $module9->id],
-             
+             ['name' => 'promos.index','label' => 'Promo List', 'module_id' => $module12->id],
+             ['name' => 'promos.create','label' => 'Promo Create', 'module_id' => $module12->id],
+             ['name' => 'promos.edit','label' => 'Promo Edit', 'module_id' => $module12->id],
+             ['name' => 'promos.show','label' => 'Promo Show', 'module_id' => $module12->id],
+             ['name' => 'promos.destroy','label' => 'Promo Delete', 'module_id' => $module12->id],
             ];
          
          foreach ($screens as $screen){
@@ -88,7 +95,7 @@ class ProjectSeeder extends Seeder
          }      
  
          //Menu Seed 
-         MenuItem::whereIn('title', ['Station Management', 'Settings'])->delete();
+         MenuItem::whereIn('title', ['Station Management', 'Settings', 'Promo Management'])->delete();
 
              $menuItem11 = new MenuItem;
              $menuItem11->menu_id  = 1;
@@ -107,6 +114,15 @@ class ProjectSeeder extends Seeder
              $menuItem8->target = "_self";
              $menuItem8->route  = "settings.create";
              $menuItem8->save(); 
+
+             $menuItem12 = new MenuItem;
+             $menuItem12->menu_id  = 1;
+             $menuItem12->title  = "Promo Management";
+             $menuItem12->icon   = "fa-list";
+             $menuItem12->order  = 12;
+             $menuItem12->target = "_self";
+             $menuItem12->route  = "promos.index";
+             $menuItem12->save(); 
              
              Setting::whereIn('name', ['site_name', 'site_logo', 'admin_email', 'date_format', 'date_time_format', 'time_format', 'entries_per_page', 'sleep_time'])->delete();
         

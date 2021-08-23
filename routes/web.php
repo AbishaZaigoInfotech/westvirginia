@@ -17,8 +17,21 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+/** PROMO SECTION ROUTES **/
+Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update']], function(){
+    Route::get('/',[App\Http\Controllers\PromoController::class, 'index'])->name('promos.index');
+    Route::get('create',[App\Http\Controllers\PromoController::class, 'create'])->name('promos.create');
+    Route::post('create',[App\Http\Controllers\PromoController::class, 'store'])->name('promos.store');
+    Route::get('{promo}/show',[App\Http\Controllers\PromoController::class, 'show'])->name('promos.show');
+    Route::get('{promo}/edit',[App\Http\Controllers\PromoController::class, 'edit'])->name('promos.edit');
+    Route::put('update/{promo}',[App\Http\Controllers\PromoController::class, 'update'])->name('promos.update');
+    Route::delete('{promo}',[App\Http\Controllers\PromoController::class, 'destroy'])->name('promos.destroy');
+    // Route::get('delete/image/{id}',[App\Http\Controllers\PromoController::class, 'deleteImage'])->name('stations.deleteImage');
+});
+/** PROMO SECTION ROUTES **/
+
 /** STATION ROUTES **/
-Route::group(['prefix' => 'stations', 'exculde' => ['stations.filter', 'stations.store', 'stations.update', 'stations.deleteImage']], function(){
+Route::group(['prefix' => 'stations', 'exculde' => ['stations.store', 'stations.update', 'stations.deleteImage']], function(){
     Route::get('/',[App\Http\Controllers\StationController::class, 'index'])->name('stations.index');
     Route::get('create',[App\Http\Controllers\StationController::class, 'create'])->name('stations.create');
     Route::post('create',[App\Http\Controllers\StationController::class, 'store'])->name('stations.store');
