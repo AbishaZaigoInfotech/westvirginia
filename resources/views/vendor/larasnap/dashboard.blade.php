@@ -9,8 +9,8 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-green"> 
                 <div class="inner">
+                    <h3>{{$stationsActiveCount}}</h3>
                     <h5> Active Stations </h5>
-                    <h5>stationsActiveCount</h5>
                 </div>
                 <div class="icon">
                     <i class="fa fa-users" aria-hidden="true"></i>
