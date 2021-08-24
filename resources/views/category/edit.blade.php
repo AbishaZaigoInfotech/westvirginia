@@ -37,6 +37,15 @@
                            @enderror 							
                         </div>
                      </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label for="description" class="control-label">Label<small class="text-danger required">*</small></label> 
+                           <input name="description" type="text" id="description" class="form-control" value="{{ old('description', $category->description) }}">
+                           @error('description')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
                             <label for="position" class="control-label">Position<small class="text-danger required">*</small></label>

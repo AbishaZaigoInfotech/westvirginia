@@ -9,11 +9,8 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-green"> 
                 <div class="inner">
-                    @if(isset($stationsActiveCount) && $stationsActiveCount)
+                    <?php  $stationsActiveCount   = App\Models\Station::where('status', 1)->count(); ?>
                     <h3>{{$stationsActiveCount}}</h3>
-                    @else
-                    <h3>0</h3>
-                    @endif
                     <h5> Active Stations </h5>
                 </div>
                 <div class="icon">
@@ -24,11 +21,8 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-red">
                 <div class="inner">
-                    @if(isset($stationsInactiveCount) && $stationsInactiveCount)
+                    <?php  $stationsInactiveCount   = App\Models\Station::where('status', 0)->count(); ?>
                     <h3>{{$stationsInactiveCount}}</h3>
-                    @else
-                    <h3>0</h3>
-                    @endif
                     <h5> Inactive Stations </h5>
                 </div>
                 <div class="icon">
