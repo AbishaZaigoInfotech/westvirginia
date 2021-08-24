@@ -10,7 +10,7 @@
             <div class="card-box bg-green"> 
                 <div class="inner">
                     <?php $stationsActiveCount   = App\Models\Station::where('status', 1)->count(); ?>
-                    <h3>{{$stationsActiveCount}}</h3>
+                    <h3>{{$ActiveCount}}</h3>
                     <h5> Active Stations </h5>
                 </div>
                 <div class="icon">
