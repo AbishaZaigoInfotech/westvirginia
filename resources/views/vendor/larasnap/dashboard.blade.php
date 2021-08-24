@@ -9,6 +9,7 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-green"> 
                 <div class="inner">
+                    <?php $stationsActiveCount   = App\Models\Station::where('status', 1)->count(); ?>
                 @if(isset($stationsActiveCount) && $stationsActiveCount)
                     <h3>{{$stationsActiveCount}}</h3>
                     @else
