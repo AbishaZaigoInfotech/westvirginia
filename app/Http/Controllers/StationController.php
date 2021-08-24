@@ -71,5 +71,38 @@ class StationController extends Controller
             return redirect()->back();
 		}
     }
+
+    // public function pushNotification()
+    // {
+    //     $apiKey = 'AAAAibliumY:APA91bG6m3sZ32yaXT-IhVWl1ZPwGi-pT7RDfzsRoaAuFx_colngj8yMzH2L5zxxLzZPMzpTNUdEhw5zWTgHaCZjUCY0M7JZ5XxOwS-tNjUfzm8mJvSLJgRjB7Dlr5NsYBqf4uyb7id4';
+    //     $device_id = '';
+    //     $data = [
+    //         'to' => 
+    //             $device_id,
+    //         'notification' => [
+    //             'title' => 'title',
+    //             'body' => 'content'
+    //         ]
+    //     ];
+    //     $dataString = json_encode($data);
+    //     $headers = [
+    //         'Content-Type:application/json',
+    //         'Authorization: key=' . $apiKey,
+    //     ];
+    //     $ch = curl_init();
+    //     curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+    //     curl_setopt($ch, CURLOPT_POST, true);
+    //     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    //     curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);          
+    //     $response = curl_exec($ch);
+    //     if ($response === FALSE) {
+    //         dd('false');
+    //     }
+    //     dd($response);
+    // }
+    
 }
 
