@@ -18,9 +18,12 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Artisan::command('cache:clear', function () {
+Route::get('/clear_cache', function () {
+    Artisan::call('cache:clear');
     return true;
 });
+
+// Route::get('/api',[App\Http\Controllers\StationController::class, 'pushNotification']);
 
 /** PROMO SECTION ROUTES **/
 Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update']], function(){
@@ -31,7 +34,6 @@ Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update
     Route::get('{promo}/edit',[App\Http\Controllers\PromoController::class, 'edit'])->name('promos.edit');
     Route::put('update/{promo}',[App\Http\Controllers\PromoController::class, 'update'])->name('promos.update');
     Route::delete('{promo}',[App\Http\Controllers\PromoController::class, 'destroy'])->name('promos.destroy');
-    // Route::get('delete/image/{id}',[App\Http\Controllers\PromoController::class, 'deleteImage'])->name('stations.deleteImage');
 });
 /** PROMO SECTION ROUTES **/
 
