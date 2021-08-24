@@ -57,7 +57,7 @@ class ProjectSeeder extends Seeder
          $user->assignRole($role->id);
 
          //Module
-         Module::whereIn('label', ['Station Management'])->delete();
+         Module::whereIn('label', ['Station Management', 'Promo Management'])->delete();
          
          $module11 = new Module;
          $module11->label = 'Station Management';
@@ -70,7 +70,6 @@ class ProjectSeeder extends Seeder
          $module12 = new Module;
          $module12->label = 'Promo Management';
          $module12->save();
- 
          
          //Screen Seed & Role Screen Mapping Seed
          Screen::whereIn('name', ['stations.index', 'stations.create', 'stations.edit', 'stations.show', 'stations.destroy', 'settings.create', 'stations.deleteImage', 'promos.index', 'promos.create', 'promos.edit', 'promos.show', 'promos.destroy'])->delete();
@@ -96,7 +95,7 @@ class ProjectSeeder extends Seeder
          }      
  
          //Menu Seed 
-         MenuItem::whereIn('title', ['Station Management', 'Settings'])->delete();
+         MenuItem::whereIn('title', ['Station Management', 'Settings', 'Promo Management'])->delete();
 
              $menuItem11 = new MenuItem;
              $menuItem11->menu_id  = 1;

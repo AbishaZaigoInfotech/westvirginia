@@ -55,5 +55,5 @@ class PromoController extends Controller
         $promo = $this->promoService->destroy($id);
         return redirect()->route('promos.index');
     }
-
+ 
 }

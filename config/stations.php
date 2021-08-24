@@ -1,7 +1,7 @@
 <?php
     return [
         
-            "pageLimit" => 10,
+            "pageLimit" => 24,
             'uploads' => [
                 'user' => [
                     'path' => 'public/upload/user/profile',
@@ -11,6 +11,7 @@
                     'path' => 'public/upload/site_settings',
                 ]
             ],
+            'apiKey' => 'AIzaSyDadhQvQJsezb0Jj8LkaA6NPHvZ6b3guuY',
             'settings' => [
                 'date_format' => [
                     'd/m/Y',
@@ -47,7 +48,7 @@
                 'time_format',
                 'entries_per_page',
                 'default_user_role',
-                'sleep_time'
+                // 'sleep_time'
             ],
             //add the setting 'name' which are related to attachements(image, video,...)
             'site_settings_attachemnt' => [

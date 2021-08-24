@@ -24,7 +24,7 @@ class PromoRequest extends FormRequest
     public function rules()
     {
         $imageValidation=['nullable'];
-        if($this->route('station')){
+        if($this->route('promo')){
             if(!empty(FormRequest::all()['image'])){
                 $imageValidation=['nullable','mimes:jpg,png'];
             }
