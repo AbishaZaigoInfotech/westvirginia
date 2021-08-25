@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Storage;
 
-class PromoCollection extends JsonResource
+class NotificationCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -15,11 +15,10 @@ class PromoCollection extends JsonResource
      */
     public function toArray($request)
     {
-        $path = 'storage/images/';
         return [
             'id' =>(string) $this->id,
             'title' => $this->title,
-            'image' => asset($path.$this->image)
+            'message' => $this->message,
         ];
     }
 }

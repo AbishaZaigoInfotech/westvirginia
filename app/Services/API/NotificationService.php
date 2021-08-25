@@ -68,6 +68,16 @@ class NotificationService
         }
     }
 
+    public function index(Request $request)
+    {
+        try{
+            $notifications = Notification::get();
+            return $notifications;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
     public function store(Request $request)
     {
         try{

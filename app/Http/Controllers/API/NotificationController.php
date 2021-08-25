@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\API\NotificationService;
+use App\Http\Resources\NotificationCollection;
 
 class NotificationController extends Controller
 {
@@ -20,6 +21,17 @@ class NotificationController extends Controller
             return apiResponse("Notification sent sucessfully", 200, (object)[]);
         }else{
             return apiResponse("Failed to send notification", 400, (object)[]);
+        }
+    }
+
+    public function index(Request $request)
+    {
+        $notifications = $this->notificationService->index($request);
+        if($notifications){
+            $notificationDetail['notifications'] = NotificationCollection::collection($notifications);
+            return apiResponse("Notifications listed sucessfully", 200, $notificationDetail);
+        }else{
+            return apiResponse("Notifications is not listed", 400, (object)[]);
         }
     }
 
