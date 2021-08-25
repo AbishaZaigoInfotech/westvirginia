@@ -14,7 +14,7 @@
                     <h5> Active Stations </h5>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-broadcast-tower" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     <h5> Inactive Stations </h5>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-broadcast-tower" aria-hidden="true"></i>
                 </div>
             </div>
         </div>

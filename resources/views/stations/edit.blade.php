@@ -103,8 +103,8 @@
                            <label for="logo" class="control-label">Station Logo</label> 
                            <input name="logo" type="file" id="logo" class="form-control" value="{{ old('logo') }}">
                            <?php $path = 'storage/images/'; ?>
-                              <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
-                              <a href="{{URL::to('/delete/image/'. $station->id)}}">Delete</a>
+                              <!-- <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
+                              <a href="{{URL::to('/delete/image/'. $station->id)}}">Delete</a> -->
                            @error('logo')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							
