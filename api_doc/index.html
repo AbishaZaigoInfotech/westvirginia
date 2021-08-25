@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fieldy SAAS | ZaigoInfotech</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome JS-->
+    <script defer src="../api_doc/js/all.min.js"></script>
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="../api_doc/css/theme.css">
+</head>
+
+<body class="docs-page">
+<header class="header fixed-top">
+    <div class="branding docs-branding">
+        <div class="container-fluid position-relative py-2">
+            <div class="docs-logo-wrapper">
+                <button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none"
+                        type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="site-logo"><a class="navbar-brand" href="/"><span class="logo-text">Inventory</span></a>
+                </div>
+            </div><!--//docs-logo-wrapper-->
+            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+
+                <ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+                    <li class="list-inline-item"><a href="https://github.com/balazaigo/zaiservedocs" target="_blank"><i
+                        class="fab fa-github fa-fw"></i></a></li>
+                </ul><!--//social-list-->
+            </div><!--//docs-top-utilities-->
+        </div><!--//container-->
+    </div><!--//branding-->
+</header><!--//header-->
+
+<div class="docs-wrapper">
+    <div id="docs-sidebar" class="docs-sidebar">
+        <div class="top-search-box d-lg-none p-3">
+        </div>
+        <nav id="docs-nav" class="docs-nav navbar">
+            <ul class="section-items list-unstyled nav flex-column pb-3">
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Product Creation</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Provided Inputs & Response</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Empty Request</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">All invalid Request</a></li>
+                <!--                    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">invalid Tax Id Request</a></li>-->
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-3"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Service Creation</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Provided Inputs & Response</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Empty Request</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">All invalid Request</a></li>
+
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-search"></i></span>Search Product & Service</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Provided Input & Response</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Empty Request</a></li>
+            </ul>
+        </nav><!--//docs-nav-->
+    </div><!--//docs-sidebar-->
+    <div class="docs-content">
+        <div class="container">
+            <article class="docs-article" id="section-1">
+                <h4 class="docs-headings" id="item-1-1">Product Creation</h4><br>
+
+                <h6 class="docs-headings">Method: POST</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory</i></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>_token<span style="color: red;"> * </span></td>
+                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
+                            request
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>item_type</td>
+                        <td>Optional</td>
+                        <td> it Should be product OR general. general - is used to create general products</td>
+                        <td>product</td>
+                    </tr>
+                    <tr>
+                        <td>name <span class="ibm-required" style="color: red;"> * </span></td>
+                        <td>Manadatory</td>
+                        <td>maximum 190 Characters accepted.</td>
+                        <td>No. 276</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>Nullable</td>
+                        <td> It may be long text.</td>
+                        <td>Ac Installtion</td>
+                    </tr>
+                    <!--                        <tr><td>hsn</td><td>Nullable.</td><td>[nullable, max:45]</td><td>S6749232</td></tr>-->
+                    <tr>
+                        <td>sku</td>
+                        <td>Optional</td>
+                        <td>Maximum 45 character accepted</td>
+                        <td>18462832</td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>Optional</td>
+                        <td>Should be active or inactive</td>
+                        <td>active</td>
+                    </tr>
+                    <tr>
+                        <td>measurement_unit</td>
+                        <td>Optional</td>
+                        <td> ge from unit api need to pass unit id</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>Optional</td>
+                        <td> get from category api Need to pass category id</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>brand_name</td>
+                        <td>Optional</td>
+                        <td>Maximum 45 character accepted, If you provide brand id it will map it to the brand. if you
+                            are type new brand name it will create new brand and map it to the product.
+                        </td>
+                        <td>Apple</td>
+                    </tr>
+                    <tr>
+                        <td>price</td>
+                        <td>Optional</td>
+                        <td>it should be numeric.</td>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <td>current_stock</td>
+                        <td>Optional</td>
+                        <td> should be numeric.</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>low_stock</td>
+                        <td>Optional</td>
+                        <td> should be numeric</td>
+                        <td></td>
+                    </tr>
+                    <!--                        <tr><td>crew_size</td><td>Nullable and should be numeric.</td><td>['nullable','numeric']</td><td>5</td></tr>-->
+                    <tr>
+                        <td>is_taxable</td>
+                        <td>Optional</td>
+                        <td> should be true or false. If you provide true you can pass tax id we can map it to the tax.
+                            If you are provide a new tax name we can create new one and map it the product
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>tax</td>
+                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
+                        <td> should be numeric and get from <a href="#item-1-5">tax api</a> OR You can create new tax
+                            name and percentage
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>tax_percentage</td>
+                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
+                        <td> should be numeric</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>images</td>
+                        <td>Optional</td>
+                        <td>[ it should be a valid format(pdf, jpeg, png, docx) and the file size should be 30Mb ,
+                            mimes:pdf, jpeg, png, docx,'max:30480']
+                        </td>
+                        <td>filename</td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4"><b>Note:</b><i> Images can be uplaod mutiple file by following format
+                            images[0],images[1],images[2]. Upload Maximum 10 files only.</i></td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <h4 class="docs-headings" id="item-1-2">Provided Inputs And Response</h4><br>
+                <p><b>item_type:</b> product</p>
+                <p><b>name:</b> Ac Installation</p>
+                <p><b>description:</b> Ac Installation</p>
+                <p><b>sku:</b> 787823 </p>
+                <!--                    <p><b>hsn:</b> 2378232 </p>-->
+                <p><b>measurement_unit:</b> 1 </p>
+                <p><b>category:</b> 3</p>
+                <p><b>brand_name:</b> 1</p>
+                <p><b>price:</b> 10000</p>
+                <p><b>current_stock:</b> 100</p>
+                <p><b>low_stock:</b>10 </p>
+                <!--                    <p><b>crew_size:</b> 5</p>-->
+                <p><b>status:</b> active</p>
+                <p><b>is_taxable:</b> true</p>
+                <p><b>tax:</b> 1</p>
+                <p><b>tax_percentage:</b> 10</p>
+                <p><b>images[0]:</b> filename</p>
+                <p><b>images[1]:</b>filename2 </p>
+
+                <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+    {
+    "message": "Item has been created",
+    "status": "success",
+    "code": 200,
+    "language": "en",
+    "data": {}
+}
+
+</code>
+</pre>
+                </div>
+                <h4 class="docs-headings" id="item-1-3">Empty Request</h4><br>
+                <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "general.badRequest",
+    "status": "bad_request",
+    "code": 400,
+    "language": "en",
+    "data": {
+        "name": {
+            "message": "The name field is required."
+        }
+    }
+}
+</code>
+</pre>
+
+                </div>
+                <h4 class="docs-headings" id="item-1-4">All Invalid Request</h4><br>
+                <h4 class="docs-headings" id="item-1-4">Provided Inputs And Response</h4><br>
+                <p><b>item_type:</b> as</p>
+                <p><b>name:</b> Ac Installation</p>
+                <p><b>description:</b> Ac Installation</p>
+                <p><b>sku:</b> Ac Installation 787823Ac Installation 787823Ac Installation 787823Ac Installation 787823
+                    Ac Installation 787823Ac Installation 787823 </p>
+                <!--                    <p><b>hsn:</b> 2378232 </p>-->
+                <p><b>measurement_unit:</b> unit one </p>
+                <p><b>category:</b> Category one</p>
+                <p><b>brand_name:</b> Samsaung</p>
+                <p><b>price:</b> Price</p>
+                <p><b>current_stock:</b> Nill</p>
+                <p><b>low_stock:</b>Nill </p>
+                <!--                    <p><b>crew_size:</b> 5</p>-->
+                <p><b>status:</b> 1</p>
+                <p><b>is_taxable:</b> true</p>
+                <p><b>tax:</b></p>
+                <p><b>tax_percentage:</b></p>
+                <p><b>images[0]:</b> filename.xls</p>
+                <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "Bad Request.",
+    "status": "bad_request",
+    "code": 400,
+    "language": "en",
+    "data": {
+        "item_type": {
+            "message": "The item type must be anyone of the following product, service, general"
+        },
+        "sku": {
+            "message": "The sku may not be greater than 45."
+        },
+        "measurement_unit": {
+            "message": "The measurement unit must be a number."
+        },
+        "status": {
+            "message": "The selected status is invalid."
+        },
+        "current_stock": {
+            "message": "The current stock must be a number."
+        },
+        "low_stock": {
+            "message": "The low stock must be a number."
+        },
+        "category": {
+            "message": "The category must be a number."
+        },
+        "price": {
+            "message": "The price must be a number."
+        },
+        "tax": {
+            "message": "The tax field is required."
+        },
+        "tax_percentage": {
+            "message": "The tax percentage field is required."
+        },
+        "images.0": {
+            "message": "The images.0 must be a file of type: pdf, jpeg, png, docx."
+        }
+    }
+}
+</code>
+</pre>
+
+                </div>
+                <!--                    <h4 class="docs-headings" id="item-1-6">Invalid Tax Id Request</h4><br>-->
+                <!--                    <div class="docs-code-block">-->
+                <!--                        <pre class="">-->
+                <!--<code class="json hljs">-->
+                <!--{-->
+                <!--    "message": "Invalid Tax id",-->
+                <!--    "status": "failure",-->
+                <!--    "code": 422,-->
+                <!--    "language": "en",-->
+                <!--    "data": {}-->
+                <!--}-->
+                <!--</code>-->
+                <!--</pre>-->
+
+                <!--                    </div>-->
+                <h4 class="docs-headings" id="item-1-5">Tax List</h4><br>
+                <h6 class="docs-headings">Method: GET</h6>
+
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Rule</th>
+                        <th>Testing Input</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3">
+                            <b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/tax</i></b></td>
+                    </tr>
+                    <tr>
+                        <td>_token<span style="color: red;"> * </span></td>
+                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
+                            request
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "Tax Group listed",
+    "status": "success",
+    "code": 200,
+    "language": "en",
+    "data": {
+        "id_tax": "1",
+        "name": "product",
+        "percentage": "10"
+    }
+}
+</code>
+</pre>
+
+                </div>
+                </header>
+
+            </article>
+
+            <article class="docs-article" id="section-3">
+                <h4 class="docs-headings" id="item-3-1">Service Creation</h4><br>
+
+                <h6 class="docs-headings">Method: POST</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory</i></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>_token<span style="color: red;"> * </span></td>
+                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
+                            request
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>item_type</td>
+                        <td>Optional</td>
+                        <td> it Should be service OR general. general - is used to create general service</td>
+                        <td>service</td>
+                    </tr>
+                    <tr>
+                        <td>name <span class="ibm-required" style="color: red;"> * </span></td>
+                        <td>Manadatory</td>
+                        <td>maximum 190 Characters accepted.</td>
+                        <td>No. 276</td>
+                    </tr>
+                    <tr>
+                        <td>description</td>
+                        <td>Nullable</td>
+                        <td> It may be long text.</td>
+                        <td>Ac Installtion</td>
+                    </tr>
+                    <!--                        <tr><td>hsn</td><td>Nullable.</td><td>[nullable, max:45]</td><td>S6749232</td></tr>-->
+                    <tr>
+                        <td>sku</td>
+                        <td>Optional</td>
+                        <td>Maximum 45 character accepted</td>
+                        <td>18462832</td>
+                    </tr>
+                    <tr>
+                        <td>status</td>
+                        <td>Optional</td>
+                        <td>Should be active or inactive</td>
+                        <td>active</td>
+                    </tr>
+                    <tr>
+                        <td>category</td>
+                        <td>Optional</td>
+                        <td> get from category api Need to pass category id</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>price</td>
+                        <td>Optional</td>
+                        <td>it should be numeric.</td>
+                        <td>10000</td>
+                    </tr>
+
+                    <tr>
+                        <td>is_taxable</td>
+                        <td>Optional</td>
+                        <td> should be true or false. If you provide true you can pass tax id we can map it to the tax.
+                            If you are provide a new tax name we can create new one and map it the product
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>tax</td>
+                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
+                        <td> should be numeric and get from <a href="#item-1-5">tax api</a> OR You can create new tax
+                            name and percentage
+                        </td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>tax_percentage</td>
+                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
+                        <td> should be numeric</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>images</td>
+                        <td>Optional</td>
+                        <td>[ it should be a valid format(pdf, jpeg, png, docx) and the file size should be 30Mb ,
+                            mimes:pdf, jpeg, png, docx,'max:30480']
+                        </td>
+                        <td>filename</td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="4"><b>Note:</b><i> Images can be uplaod mutiple file by following format
+                            images[0],images[1],images[2]. Upload Maximum 10 files only.</i></td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <h4 class="docs-headings" id="item-3-2">Provided Inputs And Response</h4><br>
+                <p><b>item_type:</b> service</p>
+                <p><b>name:</b> Ac Installation</p>
+                <p><b>description:</b> Ac Installation</p>
+                <p><b>sku:</b> 787823 </p>
+                <!--                    <p><b>hsn:</b> 2378232 </p>-->
+
+                <p><b>category:</b> 3</p>
+
+                <p><b>price:</b> 10000</p>
+
+                <!--                    <p><b>crew_size:</b> 5</p>-->
+                <p><b>status:</b> active</p>
+                <p><b>is_taxable:</b> true</p>
+                <p><b>tax:</b> 1</p>
+                <p><b>tax_percentage:</b> 10</p>
+                <p><b>images[0]:</b> filename</p>
+
+                <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+    {
+    "message": "Item has been created",
+    "status": "success",
+    "code": 200,
+    "language": "en",
+    "data": {}
+}
+
+</code>
+</pre>
+                </div>
+                <h4 class="docs-headings" id="item-3-3">Empty Request</h4><br>
+                <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "general.badRequest",
+    "status": "bad_request",
+    "code": 400,
+    "language": "en",
+    "data": {
+        "name": {
+            "message": "The name field is required."
+        }
+    }
+}
+</code>
+</pre>
+
+                </div>
+                <h4 class="docs-headings" id="item-3-4">All Invalid Request</h4><br>
+
+                <h4 class="docs-headings" id="item-3-4">Provided Inputs And Response</h4><br>
+                <p><b>item_type:</b> as</p>
+                <p><b>name:</b> Ac Installation</p>
+                <p><b>description:</b> Ac Installation</p>
+                <p><b>sku:</b> Ac Installation 787823Ac Installation 787823Ac Installation 787823Ac Installation 787823
+                    Ac Installation 787823Ac Installation 787823 </p>
+                <!--                    <p><b>hsn:</b> 2378232 </p>-->
+
+                <p><b>category:</b> Category one</p>
+                <p><b>price:</b> Price</p>
+
+                <!--                    <p><b>crew_size:</b> 5</p>-->
+                <p><b>status:</b> 1</p>
+                <p><b>is_taxable:</b> true</p>
+                <p><b>tax:</b></p>
+                <p><b>tax_percentage:</b></p>
+                <p><b>images[0]:</b> filename.xls</p>
+                <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "Bad Request.",
+    "status": "bad_request",
+    "code": 400,
+    "language": "en",
+    "data": {
+        "item_type": {
+            "message": "The item type must be anyone of the following product, service, general"
+        },
+        "sku": {
+            "message": "The sku may not be greater than 45."
+        },
+
+        "status": {
+            "message": "The selected status is invalid."
+        },
+
+        "category": {
+            "message": "The category must be a number."
+        },
+        "price": {
+            "message": "The price must be a number."
+        },
+        "tax": {
+            "message": "The tax field is required."
+        },
+        "tax_percentage": {
+            "message": "The tax percentage field is required."
+        },
+        "images.0": {
+            "message": "The images.0 must be a file of type: pdf, jpeg, png, docx."
+        }
+    }
+}
+</code>
+</pre>
+
+                </div>
+                <!--                    <h4 class="docs-headings" id="item-1-6">Invalid Tax Id Request</h4><br>-->
+                <!--                    <div class="docs-code-block">-->
+                <!--                        <pre class="">-->
+                <!--<code class="json hljs">-->
+                <!--{-->
+                <!--    "message": "Invalid Tax id",-->
+                <!--    "status": "failure",-->
+                <!--    "code": 422,-->
+                <!--    "language": "en",-->
+                <!--    "data": {}-->
+                <!--}-->
+                <!--</code>-->
+                <!--</pre>-->
+
+                <!--                    </div>-->
+
+
+        </div>
+        </header>
+
+        </article>
+        <article class="docs-article" id="section-2">
+            <h4 class="docs-headings" id="item-2-1">Search Product & Service</h4><br>
+
+            <h6 class="docs-headings">Method: GET</h6>
+            <table class="table table-hover table-bordered" style="width:100% !important;">
+                <thead>
+                <tr>
+                    <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                    <th>Validations</th>
+                    <th>Rule</th>
+                    <th>Testing Inputs</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>URL</td>
+                    <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory/search/items</i></b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>_token<span style="color: red;"> * </span></td>
+                    <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other request
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>search</td>
+                    <td>Nullable</td>
+                    <td>[nullable]</td>
+                    <td>Ac Installtion</td>
+                </tr>
+                <tr>
+                    <td>limit</td>
+                    <td>Nullable</td>
+                    <td>[nullable]</td>
+                    <td>10</td>
+                </tr>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="4"><b>Note:</b><i> We Have set default limit as 1000. in request limit will passed from
+                        input it will retrieve list based on request limit</i></td>
+                </tr>
+                </tfoot>
+            </table>
+            <h4 class="docs-headings" id="item-2-2">Provided Inputs And Response</h4><br>
+            <p><b>search:</b> Ac Product</p>
+
+            <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+{
+    "message": "Item List Retrieved",
+    "status": "success",
+    "code": 200,
+    "language": "en",
+    "data": {
+        "items": [
+            {
+                "id_item": "1",
+                "name": "Ac Service",
+                "description": "Electronic Items",
+                "price": "1000.000",
+                "tax_percentage": "10"
+            },
+            {
+                "id_item": "2",
+                "name": "Ac Service",
+                "description": "Electronic Items",
+                "price": "1000.000",
+                "tax_percentage": "10"
+            },
+            {
+                "id_item": "3",
+                "name": "Ac Service",
+                "description": "Electronic Items",
+                "price": "1000.000",
+                "tax_percentage": "10"
+            },
+
+
+
+        ]
+    }
+}
+
+</code>
+</pre>
+            </div>
+            <h4 class="docs-headings" id="item-2-3">Empty Request</h4><br>
+            <div class="docs-code-block">
+                        <pre class="">
+<code class="json hljs">
+{
+    "message": "No Items Found",
+    "status": "failure",
+    "code": 422,
+    "language": "en",
+    "data": {}
+}
+</code>
+</pre>
+
+            </div>
+
+            </header>
+
+        </article>
+        <footer class="footer">
+
+            <div class="footer-bottom text-center py-5">
+
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a
+                    class="theme-link" href="https://www.zaigoinfotech.com/" target="_blank">ZaigoInfotech</a></small>
+
+
+            </div>
+
+        </footer>
+    </div>
+</div>
+</div><!--//docs-wrapper-->
+<!-- Javascript -->
+<script src="../api_doc/js/jquery-3.4.1.min.js"></script>
+<script src="../api_doc/js/popper.min.js"></script>
+<script src="../api_doc/js/bootstrap.min.js"></script>
+<!-- Page Specific JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="../api_doc/js/highlight-custom.js"></script>
+<script src="../api_doc/js/jquery.scrollTo.min.js"></script>
+<script src="../api_doc/js/ekko-lightbox.min.js"></script>
+<script src="../api_doc/js/docs.js"></script>
+</body>
+</html>
+

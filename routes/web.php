@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::group(['prefix' => 'password', 'exculde' => ['password.store', 'promos.update']], function(){
+    Route::get('create',[App\Http\Controllers\ChangePasswordController::class, 'create'])->name('password.create');
+    Route::post('create',[App\Http\Controllers\ChangePasswordController::class, 'store'])->name('password.store');
+});
+
 /** PROMO SECTION ROUTES **/
 Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update']], function(){
     Route::get('/',[App\Http\Controllers\PromoController::class, 'index'])->name('promos.index');
@@ -41,8 +46,6 @@ Route::group(['prefix' => 'stations', 'exculde' => ['stations.store', 'stations.
     Route::delete('{station}',[App\Http\Controllers\StationController::class, 'destroy'])->name('stations.destroy');
     Route::get('delete/image/{id}',[App\Http\Controllers\StationController::class, 'deleteImage'])->name('stations.deleteImage');
 });
-
-
 /** STATION ROUTES **/
 
 /** SETTING ROUTES **/
