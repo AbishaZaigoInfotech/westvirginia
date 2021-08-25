@@ -20,9 +20,7 @@ class PromoCollection extends JsonResource
         return [
             'id' =>(string) $this->id,
             'title' => $this->title,
-            'image' => asset($path.$this->image),
-            'status' =>  $status,
-            'created_at' => $this->created_at
+            'image' => asset($path.$this->image)
         ];
     }
 }
