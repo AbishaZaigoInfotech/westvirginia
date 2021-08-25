@@ -34,6 +34,7 @@
                            <th>ID</th>
                            <th>Name(Slug)</th>
                            <th>Label</th>
+                           <th>Description</th>
                            <th>Position</th>
                            <th>Status</th>
                            <th></th>
@@ -46,6 +47,7 @@
                            <td>{{ $category->id }}@if($category->is_parent == 1) <small class="parent-child-category">*</small> @endif</td>
                            <td>{{ $category->name }}</td>
                            <td>{{ $category->label }}</td>
+                           <td>{{ $category->description }}</td>
                            <td>{{ $category->position }}</td>
                            <td>
                                 @if($category->status === 1)
