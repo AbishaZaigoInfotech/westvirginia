@@ -54,7 +54,7 @@ class StationService
 
     public function show($id)
     {
-        $station = Station::where('id', $id)->first();
+        $station = Station::with('category')->where('id', $id)->first();
         return $station;
     }
 

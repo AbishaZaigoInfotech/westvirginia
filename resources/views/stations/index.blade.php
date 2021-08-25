@@ -96,8 +96,12 @@
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
-                           {{$station->format == 1 ? "Rock" : ($station->format == 2 ? "Country" : ($station->format == 3 ? "AC" : ($station->format == 4 ? "CHR" : ($station->format == 5 ? "News/Talk" : '-na-'))))}}
-                           </td>
+                           @foreach($categories as $category)
+                              @if($station->format == $category->id)
+                                 {{$category->label}}
+                              @endif
+                           @endforeach
+                        </td>
                            <!-- <td><a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a></td>
                            <td><a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a></td> -->
                            <td>{{ $station->phone }}</td>

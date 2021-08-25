@@ -44,17 +44,7 @@
                                     Format
                                 </div>
                                 <div class="col-9 mt-2">
-                                    @if($station->format=='1')
-                                        Rock
-                                    @elseif($station->format=='2')
-                                        Country
-                                    @elseif($station->format=='3')
-                                        AC
-                                    @elseif($station->format=='4')
-                                        CHR
-                                    @elseif($station->format=='5')
-                                        News/Talk
-                                    @endif
+                                   {{$station->category->label}}
                                 </div>
                             </div>
                             <div class="row">
