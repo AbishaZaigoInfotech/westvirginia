@@ -45,7 +45,7 @@
                            <label for="image" class="control-label">Promo image</label> 
                            <input name="image" type="file" id="image" class="form-control" value="{{ old('image') }}">
                            <?php $path = 'storage/images/'; ?>
-                              <a href="{{ asset($path.$promo->image) }}" target="_blank">{{$promo->image}}</a>
+                              <!-- <a href="{{ asset($path.$promo->image) }}" target="_blank">{{$promo->image}}</a> -->
                            @error('image')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							
