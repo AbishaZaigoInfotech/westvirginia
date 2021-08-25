@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Fieldy SAAS | ZaigoInfotech</title>
+    <title>West Virginia | ZaigoInfotech</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -54,593 +54,302 @@
         </div>
         <nav id="docs-nav" class="docs-nav navbar">
             <ul class="section-items list-unstyled nav flex-column pb-3">
-                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Product Creation</a></li>
+				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Stations Listing and Filtering</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">API Description</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Provided Inputs & Response</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Empty Request</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">All invalid Request</a></li>
-                <!--                    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">invalid Tax Id Request</a></li>-->
-                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-3"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Service Creation</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">API Description</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Provided Inputs & Response</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Empty Request</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-4">All invalid Request</a></li>
-
-                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-search"></i></span>Search Product & Service</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Provided Input & Response</a></li>
+				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Filter By Format</a></li>
+				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Filter By Call Letters</a></li>
+				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Filter By Status</a></li>
+				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">Search</a></li>
+				
+				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Categories Listing</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">API Description</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Provided Input & Response</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Empty Request</a></li>
+				
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-3"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Promos Listing</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Provided Inputs & Response</a></li>
+				
+				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-4"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Promos Details</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Provided Inputs & Response</a></li>
+				
+				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-5"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Device Creation</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Provided Inputs & Response</a></li>
+				
+				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-6"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Sending Notification</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Provided Inputs & Response</a></li>
+				
+				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-7"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Notification Listing</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Provided Inputs & Response</a></li>
             </ul>
         </nav><!--//docs-nav-->
     </div><!--//docs-sidebar-->
     <div class="docs-content">
         <div class="container">
             <article class="docs-article" id="section-1">
-                <h4 class="docs-headings" id="item-1-1">Product Creation</h4><br>
+                <h4 class="docs-headings" id="item-1-1">Stations Listing</h4><br>
 
-                <h6 class="docs-headings">Method: POST</h6>
+                <h6 class="docs-headings">Method: GET</h6>
                 <table class="table table-hover table-bordered" style="width:100% !important;">
                     <thead>
-                    <tr>
-                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
-                        <th>Validations</th>
-                        <th>Rule</th>
-                        <th>Testing Inputs</th>
-                    </tr>
+						<tr>
+							<th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+							<th>Validations</th>
+							<th>Rule</th>
+							<th>Testing Inputs</th>
+						</tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>URL</td>
-                        <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory</i></b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>_token<span style="color: red;"> * </span></td>
-                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
-                            request
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>item_type</td>
-                        <td>Optional</td>
-                        <td> it Should be product OR general. general - is used to create general products</td>
-                        <td>product</td>
-                    </tr>
-                    <tr>
-                        <td>name <span class="ibm-required" style="color: red;"> * </span></td>
-                        <td>Manadatory</td>
-                        <td>maximum 190 Characters accepted.</td>
-                        <td>No. 276</td>
-                    </tr>
-                    <tr>
-                        <td>description</td>
-                        <td>Nullable</td>
-                        <td> It may be long text.</td>
-                        <td>Ac Installtion</td>
-                    </tr>
-                    <!--                        <tr><td>hsn</td><td>Nullable.</td><td>[nullable, max:45]</td><td>S6749232</td></tr>-->
-                    <tr>
-                        <td>sku</td>
-                        <td>Optional</td>
-                        <td>Maximum 45 character accepted</td>
-                        <td>18462832</td>
-                    </tr>
-                    <tr>
-                        <td>status</td>
-                        <td>Optional</td>
-                        <td>Should be active or inactive</td>
-                        <td>active</td>
-                    </tr>
-                    <tr>
-                        <td>measurement_unit</td>
-                        <td>Optional</td>
-                        <td> ge from unit api need to pass unit id</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>category</td>
-                        <td>Optional</td>
-                        <td> get from category api Need to pass category id</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>brand_name</td>
-                        <td>Optional</td>
-                        <td>Maximum 45 character accepted, If you provide brand id it will map it to the brand. if you
-                            are type new brand name it will create new brand and map it to the product.
-                        </td>
-                        <td>Apple</td>
-                    </tr>
-                    <tr>
-                        <td>price</td>
-                        <td>Optional</td>
-                        <td>it should be numeric.</td>
-                        <td>10000</td>
-                    </tr>
-                    <tr>
-                        <td>current_stock</td>
-                        <td>Optional</td>
-                        <td> should be numeric.</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>low_stock</td>
-                        <td>Optional</td>
-                        <td> should be numeric</td>
-                        <td></td>
-                    </tr>
-                    <!--                        <tr><td>crew_size</td><td>Nullable and should be numeric.</td><td>['nullable','numeric']</td><td>5</td></tr>-->
-                    <tr>
-                        <td>is_taxable</td>
-                        <td>Optional</td>
-                        <td> should be true or false. If you provide true you can pass tax id we can map it to the tax.
-                            If you are provide a new tax name we can create new one and map it the product
-                        </td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>tax</td>
-                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
-                        <td> should be numeric and get from <a href="#item-1-5">tax api</a> OR You can create new tax
-                            name and percentage
-                        </td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>tax_percentage</td>
-                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
-                        <td> should be numeric</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>images</td>
-                        <td>Optional</td>
-                        <td>[ it should be a valid format(pdf, jpeg, png, docx) and the file size should be 30Mb ,
-                            mimes:pdf, jpeg, png, docx,'max:30480']
-                        </td>
-                        <td>filename</td>
-                    </tr>
-
+						<tr>
+							<td>URL</td>
+							<td class="text-center" colspan="3"><b><i>http://localhost/westvirginia/api/stations</i></b>
+							</td>
+						</tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="4"><b>Note:</b><i> Images can be uplaod mutiple file by following format
-                            images[0],images[1],images[2]. Upload Maximum 10 files only.</i></td>
-                    </tr>
-                    </tfoot>
                 </table>
-                <h4 class="docs-headings" id="item-1-2">Provided Inputs And Response</h4><br>
-                <p><b>item_type:</b> product</p>
-                <p><b>name:</b> Ac Installation</p>
-                <p><b>description:</b> Ac Installation</p>
-                <p><b>sku:</b> 787823 </p>
-                <!--                    <p><b>hsn:</b> 2378232 </p>-->
-                <p><b>measurement_unit:</b> 1 </p>
-                <p><b>category:</b> 3</p>
-                <p><b>brand_name:</b> 1</p>
-                <p><b>price:</b> 10000</p>
-                <p><b>current_stock:</b> 100</p>
-                <p><b>low_stock:</b>10 </p>
-                <!--                    <p><b>crew_size:</b> 5</p>-->
-                <p><b>status:</b> active</p>
-                <p><b>is_taxable:</b> true</p>
-                <p><b>tax:</b> 1</p>
-                <p><b>tax_percentage:</b> 10</p>
-                <p><b>images[0]:</b> filename</p>
-                <p><b>images[1]:</b>filename2 </p>
+                <h4 class="docs-headings" id="item-1-2">Provided Input & Response</h4><br>
 
                 <div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
 
     {
-    "message": "Item has been created",
-    "status": "success",
+    "message": "Stations listed sucessfully",
     "code": 200,
-    "language": "en",
-    "data": {}
-}
-
-</code>
-</pre>
-                </div>
-                <h4 class="docs-headings" id="item-1-3">Empty Request</h4><br>
-                <div class="docs-code-block">
-                        <pre class="">
-<code class="json hljs">
-{
-    "message": "general.badRequest",
-    "status": "bad_request",
-    "code": 400,
-    "language": "en",
-    "data": {
-        "name": {
-            "message": "The name field is required."
-        }
-    }
-}
-</code>
-</pre>
-
-                </div>
-                <h4 class="docs-headings" id="item-1-4">All Invalid Request</h4><br>
-                <h4 class="docs-headings" id="item-1-4">Provided Inputs And Response</h4><br>
-                <p><b>item_type:</b> as</p>
-                <p><b>name:</b> Ac Installation</p>
-                <p><b>description:</b> Ac Installation</p>
-                <p><b>sku:</b> Ac Installation 787823Ac Installation 787823Ac Installation 787823Ac Installation 787823
-                    Ac Installation 787823Ac Installation 787823 </p>
-                <!--                    <p><b>hsn:</b> 2378232 </p>-->
-                <p><b>measurement_unit:</b> unit one </p>
-                <p><b>category:</b> Category one</p>
-                <p><b>brand_name:</b> Samsaung</p>
-                <p><b>price:</b> Price</p>
-                <p><b>current_stock:</b> Nill</p>
-                <p><b>low_stock:</b>Nill </p>
-                <!--                    <p><b>crew_size:</b> 5</p>-->
-                <p><b>status:</b> 1</p>
-                <p><b>is_taxable:</b> true</p>
-                <p><b>tax:</b></p>
-                <p><b>tax_percentage:</b></p>
-                <p><b>images[0]:</b> filename.xls</p>
-                <div class="docs-code-block">
-                        <pre class="">
-<code class="json hljs">
-{
-    "message": "Bad Request.",
-    "status": "bad_request",
-    "code": 400,
-    "language": "en",
-    "data": {
-        "item_type": {
-            "message": "The item type must be anyone of the following product, service, general"
-        },
-        "sku": {
-            "message": "The sku may not be greater than 45."
-        },
-        "measurement_unit": {
-            "message": "The measurement unit must be a number."
-        },
-        "status": {
-            "message": "The selected status is invalid."
-        },
-        "current_stock": {
-            "message": "The current stock must be a number."
-        },
-        "low_stock": {
-            "message": "The low stock must be a number."
-        },
-        "category": {
-            "message": "The category must be a number."
-        },
-        "price": {
-            "message": "The price must be a number."
-        },
-        "tax": {
-            "message": "The tax field is required."
-        },
-        "tax_percentage": {
-            "message": "The tax percentage field is required."
-        },
-        "images.0": {
-            "message": "The images.0 must be a file of type: pdf, jpeg, png, docx."
-        }
-    }
-}
-</code>
-</pre>
-
-                </div>
-                <!--                    <h4 class="docs-headings" id="item-1-6">Invalid Tax Id Request</h4><br>-->
-                <!--                    <div class="docs-code-block">-->
-                <!--                        <pre class="">-->
-                <!--<code class="json hljs">-->
-                <!--{-->
-                <!--    "message": "Invalid Tax id",-->
-                <!--    "status": "failure",-->
-                <!--    "code": 422,-->
-                <!--    "language": "en",-->
-                <!--    "data": {}-->
-                <!--}-->
-                <!--</code>-->
-                <!--</pre>-->
-
-                <!--                    </div>-->
-                <h4 class="docs-headings" id="item-1-5">Tax List</h4><br>
-                <h6 class="docs-headings">Method: GET</h6>
-
-                <table class="table table-hover table-bordered" style="width:100% !important;">
-                    <thead>
-                    <tr>
-                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
-                        <th>Rule</th>
-                        <th>Testing Input</th>
-                        <th>Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>URL</td>
-                        <td class="text-center" colspan="3">
-                            <b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/tax</i></b></td>
-                    </tr>
-                    <tr>
-                        <td>_token<span style="color: red;"> * </span></td>
-                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
-                            request
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="docs-code-block">
-                        <pre class="">
-<code class="json hljs">
-{
-    "message": "Tax Group listed",
     "status": "success",
-    "code": 200,
-    "language": "en",
     "data": {
-        "id_tax": "1",
-        "name": "product",
-        "percentage": "10"
+        "stations": [
+            {
+                "id": "1",
+                "call_letters": "station1",
+                "frequency": "station1",
+                "format": "CHR",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "8907654321",
+                "email": "station1@gmail.com",
+                "status": "Active",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867169_6125cca1cba1f.jpg"
+            },
+            {
+                "id": "2",
+                "call_letters": "station2",
+                "frequency": "station2",
+                "format": "Rock",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "7890654321",
+                "email": "station2@gmail.com",
+                "status": "Inactive",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629809942_6124ed162c0f2.png"
+            }
+        ],
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ],
+        "sleep_time": "10:54",
+        "next_links": "",
+        "previous_links": ""
+    }
+}
+
+</code>
+</pre>
+                </div>
+			<h4 class="docs-headings" id="item-1-3">Provided Input & Response</h4><br>
+            <h6><p><b>Filter:</b> Format</p></h6>
+			<p><b>format:</b> 1</p>
+            <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+{
+    "message": "Stations listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "stations": [
+            {
+                "id": "2",
+                "call_letters": "station2",
+                "frequency": "station2",
+                "format": "Rock",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "7890654321",
+                "email": "station2@gmail.com",
+                "status": "Inactive",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629809942_6124ed162c0f2.png"
+            }
+        ],
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ],
+        "sleep_time": "10:54",
+        "next_links": "",
+        "previous_links": ""
+    }
+}
+
+</code>
+</pre>
+            </div>
+			<h4 class="docs-headings" id="item-1-4">Provided Input & Response</h4><br>
+			<h6><p><b>Filter:</b> Call letters</p></h6>
+			<p><b>call_letters:</b> desc</p>
+            <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+{
+    "message": "Stations listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "stations": [
+            {
+                "id": "2",
+                "call_letters": "station2",
+                "frequency": "station2",
+                "format": "Rock",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "7890654321",
+                "email": "station2@gmail.com",
+                "status": "Inactive",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629809942_6124ed162c0f2.png"
+            },
+            {
+                "id": "1",
+                "call_letters": "station1",
+                "frequency": "station1",
+                "format": "CHR",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "8907654321",
+                "email": "station1@gmail.com",
+                "status": "Active",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867169_6125cca1cba1f.jpg"
+            }
+        ],
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ],
+        "sleep_time": "10:54",
+        "next_links": "",
+        "previous_links": ""
+    }
+}
+
+</code>
+</pre>
+            </div>
+			<h4 class="docs-headings" id="item-1-5">Provided Input & Response</h4><br>
+			<h6><p><b>Filter:</b> Status</p></h6>
+			<p><b>status:</b> 1</p>
+            <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+{
+    "message": "Stations listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "stations": [
+            {
+                "id": "1",
+                "call_letters": "station1",
+                "frequency": "station1",
+                "format": "CHR",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "8907654321",
+                "email": "station1@gmail.com",
+                "status": "Active",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867169_6125cca1cba1f.jpg"
+            }
+        ],
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ],
+        "sleep_time": "10:54",
+        "next_links": "",
+        "previous_links": ""
     }
 }
 </code>
 </pre>
-
-                </div>
+            </div>
+			<h4 class="docs-headings" id="item-1-6">Provided Input & Response</h4><br>
+			<h6><p><b>Search:</b> Call letters, Frequency, Phone, Email</p></h6>
+			<p><b>search:</b>8907</p>
+            <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+{
+    "message": "Stations listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "stations": [
+            {
+                "id": "1",
+                "call_letters": "station1",
+                "frequency": "station1",
+                "format": "CHR",
+                "streaming_player": "https://v7player.wostreaming.net/2589",
+                "website": "https://v7player.wostreaming.net/2589",
+                "phone": "8907654321",
+                "email": "station1@gmail.com",
+                "status": "Active",
+                "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867169_6125cca1cba1f.jpg"
+            }
+        ],
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ],
+        "sleep_time": "10:54",
+        "next_links": "",
+        "previous_links": ""
+    }
+}
+</code>
+</pre>
+            </div>
                 </header>
 
             </article>
-
-            <article class="docs-article" id="section-3">
-                <h4 class="docs-headings" id="item-3-1">Service Creation</h4><br>
-
-                <h6 class="docs-headings">Method: POST</h6>
-                <table class="table table-hover table-bordered" style="width:100% !important;">
-                    <thead>
-                    <tr>
-                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
-                        <th>Validations</th>
-                        <th>Rule</th>
-                        <th>Testing Inputs</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>URL</td>
-                        <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory</i></b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>_token<span style="color: red;"> * </span></td>
-                        <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other
-                            request
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>item_type</td>
-                        <td>Optional</td>
-                        <td> it Should be service OR general. general - is used to create general service</td>
-                        <td>service</td>
-                    </tr>
-                    <tr>
-                        <td>name <span class="ibm-required" style="color: red;"> * </span></td>
-                        <td>Manadatory</td>
-                        <td>maximum 190 Characters accepted.</td>
-                        <td>No. 276</td>
-                    </tr>
-                    <tr>
-                        <td>description</td>
-                        <td>Nullable</td>
-                        <td> It may be long text.</td>
-                        <td>Ac Installtion</td>
-                    </tr>
-                    <!--                        <tr><td>hsn</td><td>Nullable.</td><td>[nullable, max:45]</td><td>S6749232</td></tr>-->
-                    <tr>
-                        <td>sku</td>
-                        <td>Optional</td>
-                        <td>Maximum 45 character accepted</td>
-                        <td>18462832</td>
-                    </tr>
-                    <tr>
-                        <td>status</td>
-                        <td>Optional</td>
-                        <td>Should be active or inactive</td>
-                        <td>active</td>
-                    </tr>
-                    <tr>
-                        <td>category</td>
-                        <td>Optional</td>
-                        <td> get from category api Need to pass category id</td>
-                        <td>1</td>
-                    </tr>
-
-                    <tr>
-                        <td>price</td>
-                        <td>Optional</td>
-                        <td>it should be numeric.</td>
-                        <td>10000</td>
-                    </tr>
-
-                    <tr>
-                        <td>is_taxable</td>
-                        <td>Optional</td>
-                        <td> should be true or false. If you provide true you can pass tax id we can map it to the tax.
-                            If you are provide a new tax name we can create new one and map it the product
-                        </td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>tax</td>
-                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
-                        <td> should be numeric and get from <a href="#item-1-5">tax api</a> OR You can create new tax
-                            name and percentage
-                        </td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>tax_percentage</td>
-                        <td>Optional, If is_taxable is true it is Mandatory otherwise optional</td>
-                        <td> should be numeric</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>images</td>
-                        <td>Optional</td>
-                        <td>[ it should be a valid format(pdf, jpeg, png, docx) and the file size should be 30Mb ,
-                            mimes:pdf, jpeg, png, docx,'max:30480']
-                        </td>
-                        <td>filename</td>
-                    </tr>
-
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="4"><b>Note:</b><i> Images can be uplaod mutiple file by following format
-                            images[0],images[1],images[2]. Upload Maximum 10 files only.</i></td>
-                    </tr>
-                    </tfoot>
-                </table>
-                <h4 class="docs-headings" id="item-3-2">Provided Inputs And Response</h4><br>
-                <p><b>item_type:</b> service</p>
-                <p><b>name:</b> Ac Installation</p>
-                <p><b>description:</b> Ac Installation</p>
-                <p><b>sku:</b> 787823 </p>
-                <!--                    <p><b>hsn:</b> 2378232 </p>-->
-
-                <p><b>category:</b> 3</p>
-
-                <p><b>price:</b> 10000</p>
-
-                <!--                    <p><b>crew_size:</b> 5</p>-->
-                <p><b>status:</b> active</p>
-                <p><b>is_taxable:</b> true</p>
-                <p><b>tax:</b> 1</p>
-                <p><b>tax_percentage:</b> 10</p>
-                <p><b>images[0]:</b> filename</p>
-
-                <div class="docs-code-block">
-<pre class="">
-<code class="json hljs">
-
-    {
-    "message": "Item has been created",
-    "status": "success",
-    "code": 200,
-    "language": "en",
-    "data": {}
-}
-
-</code>
-</pre>
-                </div>
-                <h4 class="docs-headings" id="item-3-3">Empty Request</h4><br>
-                <div class="docs-code-block">
-                        <pre class="">
-<code class="json hljs">
-{
-    "message": "general.badRequest",
-    "status": "bad_request",
-    "code": 400,
-    "language": "en",
-    "data": {
-        "name": {
-            "message": "The name field is required."
-        }
-    }
-}
-</code>
-</pre>
-
-                </div>
-                <h4 class="docs-headings" id="item-3-4">All Invalid Request</h4><br>
-
-                <h4 class="docs-headings" id="item-3-4">Provided Inputs And Response</h4><br>
-                <p><b>item_type:</b> as</p>
-                <p><b>name:</b> Ac Installation</p>
-                <p><b>description:</b> Ac Installation</p>
-                <p><b>sku:</b> Ac Installation 787823Ac Installation 787823Ac Installation 787823Ac Installation 787823
-                    Ac Installation 787823Ac Installation 787823 </p>
-                <!--                    <p><b>hsn:</b> 2378232 </p>-->
-
-                <p><b>category:</b> Category one</p>
-                <p><b>price:</b> Price</p>
-
-                <!--                    <p><b>crew_size:</b> 5</p>-->
-                <p><b>status:</b> 1</p>
-                <p><b>is_taxable:</b> true</p>
-                <p><b>tax:</b></p>
-                <p><b>tax_percentage:</b></p>
-                <p><b>images[0]:</b> filename.xls</p>
-                <div class="docs-code-block">
-                        <pre class="">
-<code class="json hljs">
-{
-    "message": "Bad Request.",
-    "status": "bad_request",
-    "code": 400,
-    "language": "en",
-    "data": {
-        "item_type": {
-            "message": "The item type must be anyone of the following product, service, general"
-        },
-        "sku": {
-            "message": "The sku may not be greater than 45."
-        },
-
-        "status": {
-            "message": "The selected status is invalid."
-        },
-
-        "category": {
-            "message": "The category must be a number."
-        },
-        "price": {
-            "message": "The price must be a number."
-        },
-        "tax": {
-            "message": "The tax field is required."
-        },
-        "tax_percentage": {
-            "message": "The tax percentage field is required."
-        },
-        "images.0": {
-            "message": "The images.0 must be a file of type: pdf, jpeg, png, docx."
-        }
-    }
-}
-</code>
-</pre>
-
-                </div>
-                <!--                    <h4 class="docs-headings" id="item-1-6">Invalid Tax Id Request</h4><br>-->
-                <!--                    <div class="docs-code-block">-->
-                <!--                        <pre class="">-->
-                <!--<code class="json hljs">-->
-                <!--{-->
-                <!--    "message": "Invalid Tax id",-->
-                <!--    "status": "failure",-->
-                <!--    "code": 422,-->
-                <!--    "language": "en",-->
-                <!--    "data": {}-->
-                <!--}-->
-                <!--</code>-->
-                <!--</pre>-->
-
-                <!--                    </div>-->
-
-
-        </div>
-        </header>
-
-        </article>
-        <article class="docs-article" id="section-2">
-            <h4 class="docs-headings" id="item-2-1">Search Product & Service</h4><br>
+			 <article class="docs-article" id="section-2">
+            <h4 class="docs-headings" id="item-2-1">Categories Listing</h4><br>
 
             <h6 class="docs-headings">Method: GET</h6>
             <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -655,99 +364,309 @@
                 <tbody>
                 <tr>
                     <td>URL</td>
-                    <td class="text-center" colspan="3"><b><i>http://devapigateway-saas.zaicrm.com/z1/accounting/inventory/search/items</i></b>
+                    <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/categories</i></b>
                     </td>
                 </tr>
-                <tr>
-                    <td>_token<span style="color: red;"> * </span></td>
-                    <td class="text-center" colspan="3">Bearer Token: "token" Pass it in header as all other request
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>search</td>
-                    <td>Nullable</td>
-                    <td>[nullable]</td>
-                    <td>Ac Installtion</td>
-                </tr>
-                <tr>
-                    <td>limit</td>
-                    <td>Nullable</td>
-                    <td>[nullable]</td>
-                    <td>10</td>
-                </tr>
-
                 </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="4"><b>Note:</b><i> We Have set default limit as 1000. in request limit will passed from
-                        input it will retrieve list based on request limit</i></td>
-                </tr>
-                </tfoot>
             </table>
             <h4 class="docs-headings" id="item-2-2">Provided Inputs And Response</h4><br>
-            <p><b>search:</b> Ac Product</p>
-
             <div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
 {
-    "message": "Item List Retrieved",
-    "status": "success",
+    "message": "Categories listed successfully",
     "code": 200,
-    "language": "en",
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "rock",
+            "label": "Rock"
+        },
+        {
+            "id": 2,
+            "name": "country",
+            "label": "Country"
+        },
+        {
+            "id": 3,
+            "name": "ac",
+            "label": "AC"
+        },
+        {
+            "id": 4,
+            "name": "chr",
+            "label": "CHR"
+        },
+        {
+            "id": 5,
+            "name": "news/talk",
+            "label": "News/Talk"
+        },
+        {
+            "id": 6,
+            "name": "notification",
+            "label": "Notification"
+        },
+        {
+            "id": 7,
+            "name": "test-title",
+            "label": "Test title"
+        }
+    ]
+}
+
+</code>
+</pre>
+            </div>
+            </header>
+
+        </article>
+            <article class="docs-article" id="section-3">
+                <h4 class="docs-headings" id="item-3-1">Promos Listing</h4><br>
+
+                <h6 class="docs-headings">Method: GET</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/promos</i></b>
+                        </td>
+                    </tr>
+                </table>
+                <h4 class="docs-headings" id="item-3-2">Provided Inputs And Response</h4><br>
+                <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+   {
+    "message": "Promos listed sucessfully",
+    "code": 200,
+    "status": "success",
     "data": {
-        "items": [
+        "promos": [
             {
-                "id_item": "1",
-                "name": "Ac Service",
-                "description": "Electronic Items",
-                "price": "1000.000",
-                "tax_percentage": "10"
-            },
-            {
-                "id_item": "2",
-                "name": "Ac Service",
-                "description": "Electronic Items",
-                "price": "1000.000",
-                "tax_percentage": "10"
-            },
-            {
-                "id_item": "3",
-                "name": "Ac Service",
-                "description": "Electronic Items",
-                "price": "1000.000",
-                "tax_percentage": "10"
-            },
-
-
-
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg",
+                "status": "Active",
+                "created_at": "2021-08-25T04:53:39.000000Z"
+            }
         ]
     }
 }
 
 </code>
 </pre>
-            </div>
-            <h4 class="docs-headings" id="item-2-3">Empty Request</h4><br>
-            <div class="docs-code-block">
-                        <pre class="">
+                </div>
+
+
+        </div>
+        </header>
+
+        </article>
+		 <article class="docs-article" id="section-4">
+                <h4 class="docs-headings" id="item-4-1">Promo Details</h4><br>
+
+                <h6 class="docs-headings">Method: GET</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/promos/{id}</i></b>
+                        </td>
+                    </tr>
+					</tbody>
+                </table>
+                <h4 class="docs-headings" id="item-4-2">Provided Inputs And Response</h4><br>
+				<p><b>Example: http://80.211.233.121/westvirginia/api/promos/1</b></p>
+                <div class="docs-code-block">
+<pre class="">
 <code class="json hljs">
-{
-    "message": "No Items Found",
-    "status": "failure",
-    "code": 422,
-    "language": "en",
+
+   {
+    "message": "Promos listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "promos": [
+            {
+                "id": "1",
+                "title": "promo1",
+                "image": "http://80.211.233.121/westvirginia/public/storage/images/image_1629867219_6125ccd34ab1c.jpg"
+            }
+        ]
+    }
+}
+</code>
+</pre>
+                </div>
+        </header>
+
+        </article>
+       <article class="docs-article" id="section-5">
+                <h4 class="docs-headings" id="item-5-1">Device Creation</h4><br>
+
+                <h6 class="docs-headings">Method: POST</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/device</i></b>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>device id</td>
+                        <td>Optional</td>
+                        <td>-</td>
+                        <td>device_id</td>
+                    </tr>
+					<tr>
+                        <td>device token</td>
+                        <td>Optional</td>
+                        <td>-</td>
+                        <td>device_token</td>
+                    </tr>
+					</tbody>
+                </table>
+                <h4 class="docs-headings" id="item-5-2">Provided Inputs And Response</h4><br>
+				<p><b>device_id:</b>test</p>
+				<p><b>device_token:</b>cmZtL1KVSlG33cAqh6jB8x:APA91bEMQtdOXopwov29t6zmwFEUpImFdG1mHkBBPfkpAj6ls7GJHQhQV8nNnff1tsvPGmdoPczTVObaY-1xo7crqY5ous8FA92iIBIMhbWq1ECPSKDlCgoxrR_TG09PLSAo0WSk0StJ</p>
+                <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+   {
+    "message": "Device details saved successfully",
+    "code": 200,
+    "status": "success",
     "data": {}
 }
 </code>
 </pre>
-
-            </div>
-
-            </header>
+        </div>
+        </header>
 
         </article>
+		 <article class="docs-article" id="section-6">
+                <h4 class="docs-headings" id="item-6-1">Sending Notification</h4><br>
+
+                <h6 class="docs-headings">Method: GET</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/notify</i></b>
+                        </td>
+                    </tr>
+					</tbody>
+                </table>
+                <h4 class="docs-headings" id="item-6-2">Provided Inputs And Response</h4><br>
+				<div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+   {
+    "message": "Notification sent sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {}
+}
+</code>
+</pre>
+        </div>
+        </header>
+
+        </article>
+		<article class="docs-article" id="section-7">
+                <h4 class="docs-headings" id="item-7-1">Notification Listing</h4><br>
+
+                <h6 class="docs-headings">Method: GET</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/notifications</i></b>
+                        </td>
+                    </tr>
+					</tbody>
+                </table>
+                <h4 class="docs-headings" id="item-7-2">Provided Inputs And Response</h4><br>
+				<div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+  {
+    "message": "Notifications listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "notifications": [
+            {
+                "id": "1",
+                "title": "Test title",
+                "message": "Test description"
+            },
+            {
+                "id": "2",
+                "title": "Test title",
+                "message": "Test description"
+            },
+            {
+                "id": "3",
+                "title": "Test title",
+                "message": "Test description"
+            }
+        ]
+    }
+}
+</code>
+</pre>
+        </div>
+        </header>
+
+        </article>
+		</div>
         <footer class="footer">
 
             <div class="footer-bottom text-center py-5">
