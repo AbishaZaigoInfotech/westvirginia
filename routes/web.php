@@ -18,13 +18,6 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/clear_cache', function () {
-    Artisan::call('cache:clear');
-    return true;
-});
-
-// Route::get('/api',[App\Http\Controllers\StationController::class, 'pushNotification']);
-
 /** PROMO SECTION ROUTES **/
 Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update']], function(){
     Route::get('/',[App\Http\Controllers\PromoController::class, 'index'])->name('promos.index');

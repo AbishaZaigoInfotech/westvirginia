@@ -17,76 +17,87 @@
                <br> <br> 	
                 <div class="container" style="margin-top:20px;">
                     <div class="row">
-                        <div class="col-3 font-weight-bold">
-                            <h5>STATION INFORMATION</h5>
-                        </div>
                         <div class="col-9">
+                            <div class="row">
+                                <div class="col-12 font-weight-bold">
+                                    <h5>STATION INFORMATION</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Call Letters
+                                </div>
+                                <div class="col-9 mt-2">
+                                    {{ucfirst($station->call_letters)}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Frequency
+                                </div>
+                                <div class="col-9 mt-2">
+                                    {{ucfirst($station->frequency)}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Format
+                                </div>
+                                <div class="col-9 mt-2">
+                                    @if($station->format=='1')
+                                        Rock
+                                    @elseif($station->format=='2')
+                                        Country
+                                    @elseif($station->format=='3')
+                                        AC
+                                    @elseif($station->format=='4')
+                                        CHR
+                                    @elseif($station->format=='5')
+                                        News/Talk
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Play
+                                </div>
+                                <div class="col-9 mt-2">
+                                    <a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Website
+                                </div>
+                                <div class="col-9 mt-2">
+                                    <a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Phone
+                                </div>
+                                <div class="col-9 mt-2">
+                                    {{ $station->phone }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Email
+                                </div>
+                                <div class="col-9 mt-2">
+                                    {{ $station->email }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Call Letters
-                        </div>
-                        <div class="col-9 mt-2">
-                            {{ucfirst($station->call_letters)}}
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Frequency
-                        </div>
-                        <div class="col-9 mt-2">
-                            {{ucfirst($station->frequency)}}
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Format
-                        </div>
-                        <div class="col-9 mt-2">
-                            @if($station->format=='1')
-                                Rock
-                            @elseif($station->format=='2')
-                                Country
-                            @elseif($station->format=='3')
-                                AC
-                            @elseif($station->format=='4')
-                                CHR
-                            @elseif($station->format=='5')
-                                News/Talk
-                            @endif
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Play
-                        </div>
-                        <div class="col-9 mt-2">
-                            <a href="{{ $station->streaming_player }}" target="_blank">{{ $station->streaming_player }}</a>
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Website
-                        </div>
-                        <div class="col-9 mt-2">
-                            <a href="{{ $station->website }}" target="_blank">{{ $station->website }}</a>
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Phone
-                        </div>
-                        <div class="col-9 mt-2">
-                            {{ $station->phone }}
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            Email
-                        </div>
-                        <div class="col-9 mt-2">
-                            {{ $station->email }}
-                        </div>
-                        <div class="col-3 font-weight-bold mt-2">
-                            
-                        </div>
-                        <div class="col-9 mt-2">
-                        </div>
-                        <div class="col-3 mt-2">
-                            <img src="{{asset('storage/images/'.$station->logo)}}" width="100px" height="100px"/>
-                        </div>
-                        <div class="col-9 mt-2">
-                        </div>
-                        <div class="col-3 mt-2" style="margin-top:5px;">
-                            <?php $path = 'storage/images/'; ?>
-                            <a href="{{ asset($path.$station->logo) }}" target="_blank">View</a>
+                        <div class="col-3">
+                            <div class="col-12 mt-2">
+                                <img src="{{asset('storage/images/'.$station->logo)}}" width="100px" height="100px"/>
+                            </div>
+                            <div class="col-12 mt-2" style="margin-top:5px; margin-left:30px;">
+                                <?php $path = 'storage/images/'; ?>
+                                <a href="{{ asset($path.$station->logo) }}" target="_blank">View</a>
+                            </div>
                         </div>
                     </div>
                 </div>

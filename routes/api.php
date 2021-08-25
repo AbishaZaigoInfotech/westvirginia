@@ -25,3 +25,5 @@ use App\Http\Controllers\API\PromoController;
 Route::resource('stations', StationController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('promos', PromoController::class);
+Route::get('/notify',[App\Http\Controllers\API\NotificationController::class, 'pushNotification']);
+Route::post('/device',[App\Http\Controllers\API\NotificationController::class, 'store']);

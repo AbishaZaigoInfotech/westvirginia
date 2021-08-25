@@ -15,7 +15,10 @@ class NotificationService
         try{
             $apiKey = config('stations.apiKey');
             $notificationId = Category::where('name', 'notification')->select('id')->first();
+<<<<<<< HEAD
             dd($notificationId);
+=======
+>>>>>>> 28b2eb12316409cd1d418d3354aad92cc4e72779
             $categories = Category::where('parent_category_id', $notificationId['id'])->select('label', 'description')->get();
             foreach($categories as $category)
             {

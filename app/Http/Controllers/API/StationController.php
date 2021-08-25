@@ -12,7 +12,6 @@ use App\Models\Setting;
 use App\Models\Promo;
 use App\Http\Resources\PromoCollection;
 use App\Services\API\PromoService;
-
 use Helpers;
 
 class StationController extends Controller

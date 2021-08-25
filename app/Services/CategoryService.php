@@ -22,7 +22,7 @@ class CategoryService{
         if($type === 'p_category'){
             $categories = Category::where('is_parent', '=', 1)->filter($this->parentCategoryFilters, $filter_request)->select('id', 'name', 'label', 'parent_category_id', 'status')->orderBy('id', 'DESC')->paginate($entriesPerPage);
         }elseif($type === 'category'){
-            $categories = Category::where('parent_category_id', '=', $parentCategoryID)->filter($this->categoryFilters, $filter_request)->select('id', 'name', 'label', 'is_parent', 'parent_category_id', 'position', 'status' )->orderBy('position', 'ASC')->paginate($entriesPerPage); 
+            $categories = Category::where('parent_category_id', '=', $parentCategoryID)->filter($this->categoryFilters, $filter_request)->select('id', 'name', 'label', 'is_parent', 'parent_category_id', 'position', 'status', 'description' )->orderBy('position', 'ASC')->paginate($entriesPerPage); 
         }    
         //Not added else condition here to throw code exception error on typo issues.
 		return $categories;
@@ -86,6 +86,7 @@ class CategoryService{
             $category->is_parent = $request->is_parent;
             $category->position = $request->position;
             $category->parent_category_id = $parentCategoryID;
+            $category->description =  $request->description;
         }
         
 		$category->save();
@@ -101,6 +102,7 @@ class CategoryService{
         
         if($type === 'category'){
             $category->is_parent = $request->is_parent;
+            $category->description =  $request->description;
             $updateOtherCategories = $this->updateCategoryPosition($id, $request->position, $category);
             if($updateOtherCategories){
                 $category->position = $request->position;
