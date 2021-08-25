@@ -9,7 +9,7 @@ use App\Http\Requests\PromoRequest;
 class PromoService
 {
 
-    public function index(PromoRequest $request)
+    public function index(Request $request)
     {
         try{
             $promos = Promo::get();
