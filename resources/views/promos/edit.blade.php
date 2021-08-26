@@ -44,6 +44,8 @@
                         <div class="form-group">
                            <label for="image" class="control-label">Promo image</label> 
                            <input name="image" type="file" id="image" class="form-control" value="{{ old('image') }}">
+                           <small class="text-danger">Allowed File Formats: jpg, png</small>
+                           <br>
                            <?php $path = 'storage/images/'; ?>
                               <!-- <a href="{{ asset($path.$promo->image) }}" target="_blank">{{$promo->image}}</a> -->
                            @error('image')

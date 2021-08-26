@@ -43,6 +43,8 @@
                         <div class="form-group">
                            <label for="image" class="control-label">Promo Image</label> 
                            <input name="image" type="file" id="image" class="form-control" value="{{ old('image') }}">
+                           <small class="text-danger">Allowed File Formats: jpg, png</small>
+                           <br>
                            @error('image')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							

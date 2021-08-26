@@ -28,7 +28,7 @@
                         <div class="">
                            <label for="logo" class="control-label">Site Logo</label> 
                            <input name="site_logo" type="file" id="site-logo" class="form-control" >
-                           <small>Allowed File Formats: jpg, jpeg, png</small>
+                           <small class="text-danger">Allowed File Formats: jpg, jpeg, png</small>
                            @error('site_logo')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							
