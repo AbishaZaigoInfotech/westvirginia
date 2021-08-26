@@ -27,7 +27,8 @@ class StationController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $format = Category::where('name','categories')->select('id')->first();
+        $categories = Category::where('parent_category_id', $format['id'])->get();
         return view('stations.create', compact('categories'));
     }
 
@@ -48,7 +49,8 @@ class StationController extends Controller
     public function edit($id)
     {
         
-        $categories = Category::get();
+        $format = Category::where('name','categories')->select('id')->first();
+        $categories = Category::where('parent_category_id', $format['id'])->get();
         $station = Station::where('id', $id)->first();
         $formats = StationCategory::where('station_id', $id)->get();
         return view('stations.edit', compact('station', 'categories', 'formats'));

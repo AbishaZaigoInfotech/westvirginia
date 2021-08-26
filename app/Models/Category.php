@@ -21,7 +21,11 @@ class Category extends Model
         return $this->hasMany('App\Models\Category', 'parent_category_id'); 
     }
 
-    public function station(){ 
+    public function stationCategory(){ 
         return $this->hasMany(StationCategory::class);
+    }
+
+    public function station(){ 
+        return $this->hasMany(Station::class);
     }
 }

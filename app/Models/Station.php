@@ -16,4 +16,7 @@ class Station extends Model
     public function stationCategory(){
         return $this->hasMany(StationCategory::class);
     } 
+    public function category(){
+        return $this->belongsTo(Category::class, 'format', 'id');
+    } 
 }
