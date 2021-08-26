@@ -21,6 +21,8 @@ class ChangePasswordController extends Controller
             'old_password' => 'required',
             'password' => 'required|min:6',
             'confirm_password' => 'required_with:password|same:password|required|min:6'
+        ],[
+            'password.required' => 'The new password field is required'
         ]);
         $data = $request->all();
         $user = User::find(auth()->user()->id);

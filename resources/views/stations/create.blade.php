@@ -85,7 +85,7 @@
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="phone" class="control-label">Station Phone<small class="text-danger required">*</small></label> 
-                           <input name="phone" type="number" id="phone" class="form-control" value="{{ old('phone') }}">
+                           <input name="phone" type="tel" id="phone" class="form-control" value="{{ old('phone') }}">
                            @error('phone')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							

@@ -46,7 +46,7 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							<label for="mobile-no" class="control-label">Mobile No<small class="text-danger required">*</small></label>
-							<input name="mobile_no" type="number" id="mobile-no" class="form-control" min="0" value="{{ old('mobile_no', $user->userProfile ? $user->userProfile->mobile_no : '') }}">
+							<input name="mobile_no" type="tel" id="mobile-no" class="form-control" min="0" value="{{ old('mobile_no', $user->userProfile ? $user->userProfile->mobile_no : '') }}">
 							@error('mobile_no')
 							 <span class="text-danger">{{ $message }}</span>
 							@enderror 
@@ -97,7 +97,7 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							<label for="pincode" class="control-label">Zip Code<small class="text-danger required">*</small></label> 
-							<input name="pincode" type="number" id="pincode" class="form-control" value="{{ old('pincode', $user->userProfile ? $user->userProfile->pincode : '') }}" min="0">
+							<input name="pincode" type="tel" id="pincode" class="form-control" value="{{ old('pincode', $user->userProfile ? $user->userProfile->pincode : '') }}" min="0">
 							@error('pincode')
 							 <span class="text-danger">{{ $message }}</span>
 							@enderror 								
