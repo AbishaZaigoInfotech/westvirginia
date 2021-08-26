@@ -35,7 +35,7 @@ class StationController extends Controller
     public function store(StationRequest $request)
     {
         $stations = $this->stationService->store($request);
-        return redirect()->route('stations.index');
+        return redirect()->route('stations.index')->withSuccess('Station successfully created.');
     }
 
     public function show($id)
@@ -59,13 +59,13 @@ class StationController extends Controller
     public function update(StationRequest $request, $id)
     {
         $stations = $this->stationService->update($request, $id);
-        return redirect()->route('stations.index');
+        return redirect()->route('stations.index')->withSuccess('Station successfully updated.');;
     }
 
     public function destroy($id)
     {
         $stations = $this->stationService->destroy($id);
-        return redirect()->route('stations.index');
+        return redirect()->route('stations.index')->withSuccess('Station successfully deleted.');
     }
 
     public function deleteImage($id)

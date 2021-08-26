@@ -26,7 +26,7 @@
                         <tr>
                            <th>ID</th>
                            <th>Promo Title</th>
-                           <th>Promo Image</th>
+                           <!-- <th>Promo Image</th> -->
                            <th>Status</th>
                            <th>Actions</th>
                         </tr>
@@ -37,9 +37,9 @@
                         <tr>
                            <td>{{ $id }}</td>
                            <td>{{ $promo->title }}</td>
-                           <td>
+                           <!-- <td>
                               <img src="{{asset('storage/images/'.$promo->image)}}" style="width:50px; height=50px;"></img>
-                           </td>
+                           </td> -->
                            <td>
                               @if($promo->status == 1)
                                  <span class="badge badge-success">Active</span>

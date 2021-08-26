@@ -29,7 +29,7 @@ class PromoController extends Controller
     public function store(PromoRequest $request)
     {
         $promo = $this->promoService->store($request);
-        return redirect()->route('promos.index');
+        return redirect()->route('promos.index')->withSuccess('Promo successfully created.');
     }
 
     public function show($id)
@@ -47,13 +47,13 @@ class PromoController extends Controller
     public function update(PromoRequest $request, $id)
     {
         $promo = $this->promoService->update($request, $id);
-        return redirect()->route('promos.index');
+        return redirect()->route('promos.index')->withSuccess('Promo successfully updated.');
     }
 
     public function destroy($id)
     {
         $promo = $this->promoService->destroy($id);
-        return redirect()->route('promos.index');
+        return redirect()->route('promos.index')->withSuccess('Promo successfully deleted.');
     }
  
 }
