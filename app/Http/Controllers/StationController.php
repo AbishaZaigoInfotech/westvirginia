@@ -20,7 +20,8 @@ class StationController extends Controller
     public function index(Request $request)
     {
         $formats = StationCategory::all();
-        $categories = Category::all();
+        $format = Category::where('name','categories')->select('id')->first();
+        $categories = Category::where('parent_category_id', $format['id'])->get();
         $stations = $this->stationService->index($request);
         return view('stations.index', compact('stations', 'categories', 'formats'));
     }
