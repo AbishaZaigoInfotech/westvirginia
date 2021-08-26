@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StationRequest;
 use App\Models\Station;
 use App\Models\Category;
+use App\Models\StationCategory;
 use App\Services\StationService;
 use DB;
 class StationController extends Controller
@@ -18,9 +19,10 @@ class StationController extends Controller
 
     public function index(Request $request)
     {
+        $formats = StationCategory::all();
         $categories = Category::all();
         $stations = $this->stationService->index($request);
-        return view('stations.index', compact('stations', 'categories'));
+        return view('stations.index', compact('stations', 'categories', 'formats'));
     }
 
     public function create()
@@ -38,15 +40,18 @@ class StationController extends Controller
     public function show($id)
     {
         $station = $this->stationService->show($id);
-        return view('stations.show', compact('station'));
+        $categories = Category::get();
+        $formats = StationCategory::where('station_id', $id)->get();
+        return view('stations.show', compact('station', 'formats', 'categories'));
     }
 
     public function edit($id)
     {
         
-        $categories = Category::all();
+        $categories = Category::get();
         $station = Station::where('id', $id)->first();
-        return view('stations.edit', compact('station', 'categories'));
+        $formats = StationCategory::where('station_id', $id)->get();
+        return view('stations.edit', compact('station', 'categories', 'formats'));
     }
 
     public function update(StationRequest $request, $id)

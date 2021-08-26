@@ -12,7 +12,7 @@ class StationService
     {
         try{
             $limit = request('limit') ? request('limit') : config('stations.pageLimit');
-            $stations = Station::with('category');
+            $stations = Station::with('stationCategory');
             if($request->format){
                 $stations->where('format', $request->format);
             }

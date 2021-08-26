@@ -44,7 +44,15 @@
                                     Format
                                 </div>
                                 <div class="col-9 mt-2">
-                                   {{$station->category->label}}
+                                    @foreach($formats as $format)
+                                        @if($station->id == $format->station_id)
+                                            @foreach($categories as $category)
+                                                @if($category->id == $format->category_id)
+                                                {{$category->label}}<br>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="row">

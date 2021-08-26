@@ -5,13 +5,14 @@ namespace App\Services;
 use App\Models\Station;
 use Illuminate\Http\Request;
 use App\Http\Requests\StationRequest;
+use App\Models\StationCategory;
 
 class StationService
 {
     public function index(Request $request)
     {
         $limit = request('limit') ? request('limit') : config('stations.pageLimit');
-        $stations = Station::with('category');
+        $stations = Station::with('stationCategory');
         if($request->format){
             $stations->where('format', $request->format);
         }
@@ -37,7 +38,6 @@ class StationService
         $station = new Station;
         $station->call_letters = $request->call_letters;
         $station->frequency = $request->frequency;
-        $station->format = $request->format;
         $station->streaming_player = $request->streaming_player;
         $station->website = $request->website;
         $station->phone = $request->phone;
@@ -49,6 +49,22 @@ class StationService
             $station->logo = $image_name;
         }
         $station->save();
+
+        $id = $station->id;
+        $stationCategory = new StationCategory;
+        if (!empty($request->format)) {
+            $count = count($request->format);
+            $indexes = array_keys($request->format);
+            for ($i = 0; $i < $count; $i++) {
+                $index = $indexes[$i];
+                $stationCategories[] = [
+                    'station_id' => $id,
+                    'category_id' => $request->format[$index],
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+            }
+            StationCategory::insert($stationCategories);
+        }
         return $station;
     }
 
@@ -63,7 +79,6 @@ class StationService
         $station = Station::find($id);
         $station->call_letters = $request->call_letters;
         $station->frequency = $request->frequency;
-        $station->format = $request->format;
         $station->streaming_player = $request->streaming_player;
         $station->website = $request->website;
         $station->phone = $request->phone;
@@ -75,6 +90,22 @@ class StationService
             $station->logo = $image_name;
         }
         $station->save();
+
+        $format = StationCategory::where('station_id', $id);
+        $format->delete();
+        if (!empty($request->format)) {
+            $count = count($request->format);
+            $indexes = array_keys($request->format);
+            for ($i = 0; $i < $count; $i++) {
+                $index = $indexes[$i];
+                $stationCategories[] = [
+                    'station_id' => $id,
+                    'category_id' => $request->format[$index],
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+            }
+            StationCategory::insert($stationCategories);
+        }
         return $station;
     }
     public function destroy($id)

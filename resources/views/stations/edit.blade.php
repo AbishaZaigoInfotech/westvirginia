@@ -40,9 +40,13 @@
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="format" class="control-label">Station Format<small class="text-danger required">*</small></label> 
-                           <select name="format" id="format" class="form-control">
+                           <select multiple="multiple" id="format" class="form-control format chosen" name="format[]">
                               @foreach($categories as $category)
-                                 <option value="{{ $category->id }}" {{ old('format') == $category->id ? 'selected' : ($station->format == $category->id ? 'selected' : '' )}}>{{ $category->label }}</option>
+                                 <option class="fcaps" value="{{ $category->id }}" 
+                                    {{ (collect(old('format'))->contains($category->id)) ? 'selected' : ''}}
+                                    @foreach($formats as $format){{ ($category->id==$format->category_id) ? 'selected' : ''}}@endforeach>
+                                 {{ $category->label }}
+                                 </option>   
                               @endforeach
                            </select>
                            @error('format')
@@ -124,5 +128,11 @@
       </div>
    </div>
 </div>
-<!-- Page Content End-->				  
+<!-- Page Content End-->	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" defer></script>	
+<script>
+   $(document).ready(function() {
+      $("#format").select2();
+   });
+</script>				  
 @endsection

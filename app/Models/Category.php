@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Filter;
-use App\Models\Station;
+use App\Models\StationCategory;
 
 class Category extends Model
 {
@@ -22,6 +22,6 @@ class Category extends Model
     }
 
     public function station(){ 
-        return $this->hasMany(Station::class);
+        return $this->hasMany(StationCategory::class);
     }
 }

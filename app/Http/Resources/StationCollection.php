@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Storage;
+use App\Http\Resources\StationCategoryCollection;
 
 class StationCollection extends JsonResource
 {
@@ -15,9 +16,10 @@ class StationCollection extends JsonResource
      */
     public function toArray($request)
     {
-        $category = $this->category ? $this->category->label : '';
         $status = $this->status == 1 ? 'Active' : 'Inactive';
         $path = 'storage/images/';
+        $id = $this->id;
+        $category = StationCategoryCollection::collection($this->stationCategory);
         return [
             'id' =>(string) $this->id,
             'call_letters' => $this->call_letters,

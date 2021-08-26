@@ -96,9 +96,13 @@
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
-                           @foreach($categories as $category)
-                              @if($station->format == $category->id)
-                                 {{$category->label}}
+                           @foreach($formats as $format)
+                              @if($station->id == $format->station_id)
+                                 @foreach($categories as $category)
+                                    @if($category->id == $format->category_id)
+                                       {{$category->label}}<br>
+                                    @endif
+                                 @endforeach
                               @endif
                            @endforeach
                         </td>
