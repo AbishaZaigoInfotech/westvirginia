@@ -111,7 +111,7 @@
 							 <span class="text-danger">{{ $message }}</span>
 							@enderror 	
 						</div>
-                        <small>Allowed File Formats: jpg, jpeg, png</small>
+                        <small class="text-danger">Allowed File Formats: jpg, jpeg, png</small>
                         <p><img src="{{ $user->avatar }}" style="width: 50px;" alt="Prof Picture" ></p>
 					</div>
 					<div class="col-md-4 no-label">
