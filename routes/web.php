@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::get('/clear_cache', function () {
+    Artisan::call('cache:clear');
+    return true;
+});
+
 Route::group(['prefix' => 'password', 'exculde' => ['password.store', 'promos.update']], function(){
     Route::get('create',[App\Http\Controllers\ChangePasswordController::class, 'create'])->name('password.create');
     Route::post('create',[App\Http\Controllers\ChangePasswordController::class, 'store'])->name('password.store');
