@@ -23,6 +23,13 @@ Route::group(['prefix' => 'password', 'exculde' => ['password.store', 'promos.up
     Route::post('create',[App\Http\Controllers\ChangePasswordController::class, 'store'])->name('password.store');
 });
 
+ /** PROFILE ROUTES **/
+ Route::group(['prefix' => 'profile', 'exculde' => ['profile.edit', 'profile.update']], function(){
+    Route::get('/', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('{user}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+});
+/** PROFILE ROUTES **/
+
 /** PROMO SECTION ROUTES **/
 Route::group(['prefix' => 'promos', 'exculde' => ['promos.store', 'promos.update']], function(){
     Route::get('/',[App\Http\Controllers\PromoController::class, 'index'])->name('promos.index');
@@ -104,12 +111,12 @@ Route::group(['namespace' => '\LaraSnap\LaravelAdmin\Controllers','prefix' => 'a
         });
         /** USER ROUTES **/
         
-        /** PROFILE ROUTES **/
-        Route::group(['prefix' => 'profile', 'exculde' => ['profile.edit', 'profile.update']], function(){
-            Route::get('/', 'ProfileController@edit')->name('profile.edit');
-            Route::put('{user}', 'ProfileController@update')->name('profile.update');
-        });
-        /** PROFILE ROUTES **/
+        // /** PROFILE ROUTES **/
+        // Route::group(['prefix' => 'profile', 'exculde' => ['profile.edit', 'profile.update']], function(){
+        //     Route::get('/', 'ProfileController@edit')->name('profile.edit');
+        //     Route::put('{user}', 'ProfileController@update')->name('profile.update');
+        // });
+        // /** PROFILE ROUTES **/
         
         /** ROLE ROUTES **/
         Route::group(['prefix' => 'roles', 'exculde' => ['roles.filter', 'roles.store', 'roles.update', 'roles.assignpermission_store', 'roles.assignscreen_store']], function(){
