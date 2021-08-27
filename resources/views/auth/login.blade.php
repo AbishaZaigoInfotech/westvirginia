@@ -56,12 +56,12 @@
       </div>
       @endif
       @if (Route::has('register'))
-      <div class="text-center p-t-12">
+      <!-- <div class="text-center p-t-12">
          <a class="txt2" href="{{ route('register') }}">
          {{ __('Create your Account') }}
          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
          </a>
-      </div>
+      </div> -->
       @endif
    </form>
 </div>
