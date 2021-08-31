@@ -19,7 +19,16 @@
 			   @csrf
 			   @method('PUT')
                <div class="row">
-               <div class="col-md-4">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="name" class="control-label">Station Name<small class="text-danger required">*</small></label> 
+                           <input name="name" type="text" id="name" class="form-control" value="{{ old('name', $station->name) }}">
+                           @error('name')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="call_letters" class="control-label">Station Call Letters<small class="text-danger required">*</small></label> 
                            <input name="call_letters" type="text" id="call_letters" class="form-control" value="{{ old('call_letters', $station->call_letters) }}">
@@ -118,8 +127,8 @@
                      </div>
                      <div class="col-md-4">
                      </div>
-                     <div class="col-md-1">
-                        <div class="form-group">
+                     <div class="col-md-4">
+                        <div class="form-group mt-4">
                            <input type="submit" value="Update" class="btn btn-primary">
                         </div>
                      </div>

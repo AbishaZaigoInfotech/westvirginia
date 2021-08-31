@@ -42,6 +42,7 @@ class StationService
     public function store(StationRequest $request)
     {
         $station = new Station;
+        $station->name = $request->name;
         $station->call_letters = $request->call_letters;
         $station->frequency = $request->frequency;
         $station->streaming_player = $request->streaming_player;
@@ -83,6 +84,7 @@ class StationService
     public function update(StationRequest $request, $id)
     {
         $station = Station::find($id);
+        $station->name = $request->name;
         $station->call_letters = $request->call_letters;
         $station->frequency = $request->frequency;
         $station->streaming_player = $request->streaming_player;

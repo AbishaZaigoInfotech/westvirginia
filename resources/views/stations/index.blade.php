@@ -73,6 +73,7 @@
                      <thead>
                         <tr>
                            <th>ID</th>
+                           <th>Name</th>
                            <!-- <th>Logo</th> -->
                            <th>Call Letters</th>
                            <th>Frequency</th>
@@ -90,6 +91,7 @@
                         @forelse($stations as $station)
                         <tr>
                            <td>{{ $id }}</td>
+                           <td>{{ $station->name }}</td>
                            <!-- <td>
                               <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>
                            </td> -->

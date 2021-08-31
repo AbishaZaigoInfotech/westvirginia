@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Heading  Start-->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-   <h1 class="h3 mb-0 text-gray-800">Station Details - {{ucfirst($station->call_letters)}} ({{$station->status == 1 ? 'Active' : 'Inactive'}})</h1>
+   <h1 class="h3 mb-0 text-gray-800">Station Details - {{ucfirst($station->name)}} ({{$station->status == 1 ? 'Active' : 'Inactive'}})</h1>
 </div>
 <!-- Page Heading End-->	
 <!-- Page Content Start-->
@@ -21,6 +21,14 @@
                             <div class="row">
                                 <div class="col-12 font-weight-bold">
                                     <h5>STATION INFORMATION</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Name
+                                </div>
+                                <div class="col-9 mt-2">
+                                    {{ucfirst($station->name)}}
                                 </div>
                             </div>
                             <div class="row">

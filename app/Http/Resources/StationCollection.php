@@ -22,6 +22,7 @@ class StationCollection extends JsonResource
         $category = StationCategoryCollection::collection($this->stationCategory);
         return [
             'id' =>(string) $this->id,
+            'name' => $this->name,
             'call_letters' => $this->call_letters,
             'frequency' => $this->frequency,
             'format' => $category,

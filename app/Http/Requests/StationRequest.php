@@ -38,6 +38,7 @@ class StationRequest extends FormRequest
 
         return [
             //
+            'name' => 'required',
             'call_letters' => 'required',
             'frequency' => 'required',
             'format' => 'required',
@@ -54,6 +55,7 @@ class StationRequest extends FormRequest
     public function messages()
     {
         return[
+            'name.required' => 'Enter station name',
             'call_letters.required' => 'Enter station call letter',
             'frequency.required' => 'Enter station frequency',
             'format.required' => 'Select station format',
