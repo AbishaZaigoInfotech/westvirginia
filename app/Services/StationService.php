@@ -32,6 +32,7 @@ class StationService
         }
         if($request->search) {
             $stations->where('call_letters','like','%'.$request->search.'%')
+                    ->orWhere('name','like','%'.$request->search.'%')
                     ->orWhere('frequency','like','%'.$request->search.'%')
                     ->orWhere('phone','like','%'.$request->search.'%')
                     ->orWhere('email','like','%'.$request->search.'%');

@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-2">
                             <div class="form-group">
-                                <input type="text" name="search" placeholder="Search..." class="form-control" value="{{request('search')}}" data-toggle="tooltip" data-placement="top" title="Search by call letters, frequency, phone, email">
+                                <input type="text" name="search" placeholder="Search..." class="form-control" value="{{request('search')}}" data-toggle="tooltip" data-placement="top" title="Search by station name, call letters, frequency, phone, email">
                            </div>
                         </div>
                         <div class="col-0">
