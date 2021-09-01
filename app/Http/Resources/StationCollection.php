@@ -20,6 +20,7 @@ class StationCollection extends JsonResource
         $path = 'storage/images/';
         $id = $this->id;
         $category = StationCategoryCollection::collection($this->stationCategory);
+        $image = ($this->logo == NULL) ? "" : asset($path.$this->logo);
         return [
             'id' =>(string) $this->id,
             'name' => $this->name,
@@ -31,7 +32,7 @@ class StationCollection extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'status' =>  $status,
-            'logo' => asset($path.$this->logo)
+            'logo' => $image
         ];
     }
 }
