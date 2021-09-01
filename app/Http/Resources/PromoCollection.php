@@ -16,7 +16,7 @@ class PromoCollection extends JsonResource
     public function toArray($request)
     {
         $path = 'storage/images/';
-        $image = ($this->image == NULL) ? "" : asset($path.$this->image);
+        $image = ($this->image == NULL) ? asset($path.'default.png') : asset($path.$this->image);
         return [
             'id' =>(string) $this->id,
             'title' => $this->title,
