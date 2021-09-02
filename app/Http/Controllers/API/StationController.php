@@ -44,4 +44,15 @@ class StationController extends Controller
             }
     }
 
+    public function show($id)
+    {
+        $station = $this->stationService->show($id);
+        if($station){
+            $stationDetail['station'] = new StationCollection($station);
+            return apiResponse("Station details listed sucessfully", 200, $stationDetail);
+        }else{
+            return apiResponse("Station details are not listed", 400, (object)[]);
+        }
+    }
+
 }

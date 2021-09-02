@@ -41,6 +41,16 @@ class StationService
             return false;
         }
     }
+
+    public function show($id)
+    {
+        try{
+            $station = Station::with('category')->where('id', $id)->first();
+            return $station;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }
 
 ?>
