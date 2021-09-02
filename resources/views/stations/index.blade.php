@@ -87,9 +87,10 @@
                         </tr>
                      </thead>
                      <tbody>
+                     @php $s_no = $stations->firstItem(); @endphp
                         @forelse($stations as $station)
                         <tr>
-                           <td>{{ $station->id }}</td>
+                           <td>{{ $s_no++ }}</td>
                            <td>{{ $station->name }}</td>
                            <!-- <td>
                               <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>

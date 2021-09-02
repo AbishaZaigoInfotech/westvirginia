@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Promo;
 use Illuminate\Http\Request;
 use App\Http\Requests\PromoRequest;
+use App\Models\Setting;
 
 class PromoService
 {

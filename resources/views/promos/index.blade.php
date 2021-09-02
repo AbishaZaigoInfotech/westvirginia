@@ -32,9 +32,10 @@
                         </tr>
                      </thead>
                      <tbody>
+                     @php $s_no = $promos->firstItem(); @endphp
                         @forelse($promos as $promo)
                         <tr>
-                           <td>{{ $promo->id }}</td>
+                           <td>{{ $s_no++ }}</td>
                            <td>{{ $promo->title }}</td>
                            <!-- <td>
                               <img src="{{asset('storage/images/'.$promo->image)}}" style="width:50px; height=50px;"></img>
