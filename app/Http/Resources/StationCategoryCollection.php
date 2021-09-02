@@ -18,7 +18,7 @@ class StationCategoryCollection extends JsonResource
         $category = $this->category ? $this->category->label : '';
         $id = $this->category ? $this->category->id : '';
         return [
-            'id' => $id,
+            'id' => (string)$id,
             'name' => $category,
         ];
     }

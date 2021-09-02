@@ -32,7 +32,7 @@ class PromoController extends Controller
     {
         $promo = $this->promoService->show($id);
         if($promo){
-            $promoDetail['promo'] = new PromoCollection($promo);
+            $promoDetail = new PromoCollection($promo);
             return apiResponse("Promo details listed sucessfully", 200, $promoDetail);
         }else{
             return apiResponse("Promo details are not listed", 400, (object)[]);
