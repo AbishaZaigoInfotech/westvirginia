@@ -87,10 +87,9 @@
                         </tr>
                      </thead>
                      <tbody>
-                     <?php $id= 1; ?>
                         @forelse($stations as $station)
                         <tr>
-                           <td>{{ $id }}</td>
+                           <td>{{ $station->id }}</td>
                            <td>{{ $station->name }}</td>
                            <!-- <td>
                               <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>
@@ -143,7 +142,6 @@
                               </div>
                            </td>
                         </tr>
-                        <?php $id++; ?>
                         @empty
                         <tr>
                            <td class="text-center" colspan="12">No Station found!</td>
