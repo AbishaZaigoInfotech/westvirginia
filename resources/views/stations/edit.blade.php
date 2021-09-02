@@ -118,8 +118,8 @@
                            <small class="text-danger">Allowed File Formats: jpg, png</small>
                            <br>
                            <?php $path = 'storage/images/'; ?>
-                              <!-- <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
-                              <a href="{{URL::to('/delete/image/'. $station->id)}}">Delete</a> -->
+                              <a href="{{ asset($path.$station->logo) }}" target="_blank">{{$station->logo}}</a>
+                              <a href="{{URL::to('/delete/image/'. $station->id)}}">Delete</a>
                            @error('logo')
                            <span class="text-danger">{{ $message }}</span>
                            @enderror 							
