@@ -19,7 +19,7 @@ class PromoService
     public function store(PromoRequest $request)
     {
         $promo = new Promo;
-        $promo->title = $request->title;
+        $promo->title = ucfirst($request->title);
         $promo->status = $request->status;
         if($request->image!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->image->extension();
@@ -39,7 +39,7 @@ class PromoService
     public function update(PromoRequest $request, $id)
     {
         $promo = Promo::find($id);
-        $promo->title = $request->title;
+        $promo->title = ucfirst($request->title);
          $promo->status = $request->status;
         if($request->image!=NULL) {
             $image_name = 'image_' . time() . '_' . uniqid() . '.' . $request->image->extension();
