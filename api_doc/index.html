@@ -63,30 +63,35 @@
 				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Filter By Status</a></li>
 				<li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">Search</a></li>
 				
-				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Categories Listing</a></li>
+				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Station Details</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">API Description</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Provided Input & Response</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Provided Inputs & Response</a></li>
 				
-                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-3"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Promos Listing</a></li>
+				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-3"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Categories Listing</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">API Description</a></li>
-                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Provided Inputs & Response</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Provided Input & Response</a></li>
 				
-				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-4"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Promos Details</a></li>
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-4"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Promos Listing</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">API Description</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Provided Inputs & Response</a></li>
 				
 				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-5"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Device Creation</a></li>
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Promo Details</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">API Description</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Provided Inputs & Response</a></li>
 				
-				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-6"><span
-                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Sending Notification</a></li>
+				 <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-6"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Device Creation</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">API Description</a></li>
                 <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Provided Inputs & Response</a></li>
+				
+				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-7"><span
+                    class="theme-icon-holder mr-2"><i class="fas fa-boxes"></i></span>Sending Notification</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">API Description</a></li>
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Provided Inputs & Response</a></li>
 				
 				<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-8"><span
                     class="theme-icon-holder mr-2"><i class="fas fa-fw fa-list"></i></span>Notification Listing</a></li>
@@ -348,8 +353,72 @@
                 </header>
 
             </article>
-			 <article class="docs-article" id="section-2">
-            <h4 class="docs-headings" id="item-2-1">Categories Listing</h4><br>
+			<article class="docs-article" id="section-2">
+                <h4 class="docs-headings" id="item-2-1">Station Details</h4><br>
+
+                <h6 class="docs-headings">Method: GET</h6>
+                <table class="table table-hover table-bordered" style="width:100% !important;">
+                    <thead>
+                    <tr>
+                        <th>Field <span class="ibm-required" style="color: red;"> * </span> required</th>
+                        <th>Validations</th>
+                        <th>Rule</th>
+                        <th>Testing Inputs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>URL</td>
+                        <td class="text-center" colspan="3"><b><i>http://80.211.233.121/westvirginia/api/stations/{id}</i></b>
+                        </td>
+                    </tr>
+					</tbody>
+                </table>
+                <h4 class="docs-headings" id="item-2-2">Provided Inputs And Response</h4><br>
+				<p><b>Example: http://80.211.233.121/westvirginia/api/stations/1</b></p>
+                <div class="docs-code-block">
+<pre class="">
+<code class="json hljs">
+
+   {
+    "message": "Station details listed sucessfully",
+    "code": 200,
+    "status": "success",
+    "data": {
+        "id": "1",
+        "name": "102 WVAQ",
+        "call_letters": "WVAQ-FM",
+        "frequency": "FM",
+        "format": [
+            {
+                "id": "2",
+                "name": "Rock"
+            },
+            {
+                "id": "3",
+                "name": "Country"
+            },
+            {
+                "id": "4",
+                "name": "AC"
+            }
+        ],
+        "streaming_player": "https://v7player.wostreaming.net/2589",
+        "website": "https://wvaq.com/",
+        "phone": "9807654321",
+        "email": "station@gmail.com",
+        "status": "Active",
+        "logo": "http://80.211.233.121/westvirginia/public/storage/images/image_1630565321_613073c90b227.png"
+    }
+}
+</code>
+</pre>
+                </div>
+        </header>
+
+        </article>
+			 <article class="docs-article" id="section-3">
+            <h4 class="docs-headings" id="item-3-1">Categories Listing</h4><br>
 
             <h6 class="docs-headings">Method: GET</h6>
             <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -369,7 +438,7 @@
                 </tr>
                 </tbody>
             </table>
-            <h4 class="docs-headings" id="item-2-2">Provided Inputs And Response</h4><br>
+            <h4 class="docs-headings" id="item-3-2">Provided Inputs And Response</h4><br>
             <div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
@@ -422,8 +491,8 @@
             </header>
 
         </article>
-            <article class="docs-article" id="section-3">
-                <h4 class="docs-headings" id="item-3-1">Promos Listing</h4><br>
+            <article class="docs-article" id="section-4">
+                <h4 class="docs-headings" id="item-4-1">Promos Listing</h4><br>
 
                 <h6 class="docs-headings">Method: GET</h6>
                 <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -442,7 +511,7 @@
                         </td>
                     </tr>
                 </table>
-                <h4 class="docs-headings" id="item-3-2">Provided Inputs And Response</h4><br>
+                <h4 class="docs-headings" id="item-4-2">Provided Inputs And Response</h4><br>
                 <div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
@@ -473,8 +542,8 @@
         </header>
 
         </article>
-		 <article class="docs-article" id="section-4">
-                <h4 class="docs-headings" id="item-4-1">Promo Details</h4><br>
+		 <article class="docs-article" id="section-5">
+                <h4 class="docs-headings" id="item-5-1">Promo Details</h4><br>
 
                 <h6 class="docs-headings">Method: GET</h6>
                 <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -494,7 +563,7 @@
                     </tr>
 					</tbody>
                 </table>
-                <h4 class="docs-headings" id="item-4-2">Provided Inputs And Response</h4><br>
+                <h4 class="docs-headings" id="item-5-2">Provided Inputs And Response</h4><br>
 				<p><b>Example: http://80.211.233.121/westvirginia/api/promos/1</b></p>
                 <div class="docs-code-block">
 <pre class="">
@@ -520,8 +589,8 @@
         </header>
 
         </article>
-       <article class="docs-article" id="section-5">
-                <h4 class="docs-headings" id="item-5-1">Device Creation</h4><br>
+       <article class="docs-article" id="section-6">
+                <h4 class="docs-headings" id="item-6-1">Device Creation</h4><br>
 
                 <h6 class="docs-headings">Method: POST</h6>
                 <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -553,7 +622,7 @@
                     </tr>
 					</tbody>
                 </table>
-                <h4 class="docs-headings" id="item-5-2">Provided Inputs And Response</h4><br>
+                <h4 class="docs-headings" id="item-6-2">Provided Inputs And Response</h4><br>
 				<p><b>device_id:</b>test</p>
 				<p><b>device_token:</b>cmZtL1KVSlG33cAqh6jB8x:APA91bEMQtdOXopwov29t6zmwFEUpImFdG1mHkBBPfkpAj6ls7GJHQhQV8nNnff1tsvPGmdoPczTVObaY-1xo7crqY5ous8FA92iIBIMhbWq1ECPSKDlCgoxrR_TG09PLSAo0WSk0StJ</p>
                 <div class="docs-code-block">
@@ -572,8 +641,8 @@
         </header>
 
         </article>
-		 <article class="docs-article" id="section-6">
-                <h4 class="docs-headings" id="item-6-1">Sending Notification</h4><br>
+		 <article class="docs-article" id="section-7">
+                <h4 class="docs-headings" id="item-7-1">Sending Notification</h4><br>
 
                 <h6 class="docs-headings">Method: GET</h6>
                 <table class="table table-hover table-bordered" style="width:100% !important;">
@@ -593,7 +662,7 @@
                     </tr>
 					</tbody>
                 </table>
-                <h4 class="docs-headings" id="item-6-2">Provided Inputs And Response</h4><br>
+                <h4 class="docs-headings" id="item-7-2">Provided Inputs And Response</h4><br>
 				<div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
@@ -610,7 +679,7 @@
         </header>
 
         </article>
-		<article class="docs-article" id="section-7">
+		<article class="docs-article" id="section-8">
                 <h4 class="docs-headings" id="item-8-1">Notification Listing</h4><br>
 
                 <h6 class="docs-headings">Method: GET</h6>
@@ -631,7 +700,7 @@
                     </tr>
 					</tbody>
                 </table>
-                <h4 class="docs-headings" id="item-7-2">Provided Inputs And Response</h4><br>
+                <h4 class="docs-headings" id="item-8-2">Provided Inputs And Response</h4><br>
 				<div class="docs-code-block">
 <pre class="">
 <code class="json hljs">
