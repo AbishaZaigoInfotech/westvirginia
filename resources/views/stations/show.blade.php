@@ -98,7 +98,11 @@
                         </div>
                         <div class="col-3">
                             <div class="col-12 mt-2">
+                                @if($station->logo != NULL)
                                 <img src="{{asset('storage/images/'.$station->logo)}}" width="100px" height="100px"/>
+                                @else
+                                <img src="{{asset('storage/images/'.image_1630480430_612f282e51057.png)}}" width="100px" height="100px"/>
+                                @endif
                             </div>
                             <div class="col-12 mt-2" style="margin-top:5px; margin-left:30px;">
                                 <?php $path = 'storage/images/'; ?>
