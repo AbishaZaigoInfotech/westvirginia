@@ -74,7 +74,7 @@
                         <tr>
                            <th>ID</th>
                            <th>Name</th>
-                           <th>Logo</th>
+                           <!-- <th>Logo</th> -->
                            <th>Call Letters</th>
                            <th>Frequency</th>
                            <th>Format</th>
@@ -92,9 +92,9 @@
                         <tr>
                            <td>{{ $id }}</td>
                            <td>{{ $station->name }}</td>
-                           <td>
+                           <!-- <td>
                               <img src="{{asset('storage/images/'.$station->logo)}}" style="width:50px; height=50px;"></img>
-                           </td>
+                           </td> -->
                            <td>{{ $station->call_letters }}</td>
                            <td>{{ $station->frequency }}</td>
                            <td>
