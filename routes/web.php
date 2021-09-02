@@ -51,8 +51,9 @@ Route::group(['prefix' => 'stations', 'exculde' => ['stations.store', 'stations.
     Route::get('{station}/edit',[App\Http\Controllers\StationController::class, 'edit'])->name('stations.edit');
     Route::put('update/{station}',[App\Http\Controllers\StationController::class, 'update'])->name('stations.update');
     Route::delete('{station}',[App\Http\Controllers\StationController::class, 'destroy'])->name('stations.destroy');
-    Route::get('delete/image/{id}',[App\Http\Controllers\StationController::class, 'deleteImage'])->name('stations.deleteImage');
 });
+
+Route::get('delete/image/{id}',[App\Http\Controllers\StationController::class, 'deleteImage'])->name('stations.deleteImage');
 /** STATION ROUTES **/
 
 /** SETTING ROUTES **/
