@@ -51,7 +51,7 @@
                               <div class="row" style="width:150px;">
                                  <div class="col-1">
                                  @canAccess('promos.show')
-                                    <a href="{{ route('promos.show', $promo->id) }}" title="Show Promo"><button class="btn btn-info btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
+                                    <a href="{{ route('promos.show', $promo->id) }}" title="View Promo"><button class="btn btn-info btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
                                  @endcanAccess
                                  </div>
                                  <div class="col-1">
@@ -65,7 +65,7 @@
                                  </div>
                                  <div class="col-1">
                                  @canAccess('promos.destroy')
-							            <a href="#" onclick="return individualDelete({{ $promo->id}})" title="delete promo"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
+							            <a href="#" onclick="return individualDelete({{ $promo->id}})" title="Delete Promo"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
                                  @endcanAccess
                                  </div>
                               </div>

@@ -123,7 +123,7 @@
                               <div class="row" style="width:150px;">
                                  <div class="col-1">
                                  @canAccess('stations.show')
-                                    <a href="{{ route('stations.show', $station->id) }}" title="Show Station"><button class="btn btn-info btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
+                                    <a href="{{ route('stations.show', $station->id) }}" title="View Station"><button class="btn btn-info btn-sm" type="button"><i aria-hidden="true" class="fa fa-eye"></i></button></a>
                                  @endcanAccess
                                  </div>
                                  <div class="col-1">
@@ -137,7 +137,7 @@
                                  </div>
                                  <div class="col-1">
                                  @canAccess('stations.destroy')
-							            <a href="#" onclick="return individualDelete({{ $station->id}})" title="delete station"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
+							            <a href="#" onclick="return individualDelete({{ $station->id}})" title="Delete Station"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
                                  @endcanAccess
                                  </div>
                               </div>
