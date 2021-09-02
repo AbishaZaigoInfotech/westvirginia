@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StationRequest;
 use App\Models\StationCategory;
 use App\Models\Category;
+use App\Models\Setting;
 
 class StationService
 {
     public function index(Request $request)
     {
-        $limit = request('limit') ? request('limit') : config('stations.pageLimit');
+        $limit = Setting::where('name', 'entries_per_page')->pluck('value');
         $stations = Station::with('stationCategory');
         if($request->format){
             if($request->format){
@@ -37,7 +38,7 @@ class StationService
                     ->orWhere('phone','like','%'.$request->search.'%')
                     ->orWhere('email','like','%'.$request->search.'%');
         } 
-        return $stations->orderBy('id', 'desc')->paginate($limit);
+        return $stations->orderBy('id', 'desc')->paginate($limit[0]);
     }
 
     public function store(StationRequest $request)

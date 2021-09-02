@@ -10,8 +10,8 @@ class PromoService
 {
     public function index(Request $request)
     {
-        $limit = request('limit') ? request('limit') : config('stations.pageLimit');
-        $promos = Promo::orderBy('id', 'desc')->paginate($limit); 
+        $limit = Setting::where('name', 'entries_per_page')->pluck('value');
+        $promos = Promo::orderBy('id', 'desc')->paginate($limit[0]); 
         return $promos;
     }
 
