@@ -28,7 +28,7 @@ class NotificationController extends Controller
     {
         $notifications = $this->notificationService->index($request);
         if($notifications){
-            $notificationDetail['notifications'] = NotificationCollection::collection($notifications);
+            $notificationDetail = NotificationCollection::collection($notifications);
             return apiResponse("Notifications listed sucessfully", 200, $notificationDetail);
         }else{
             return apiResponse("Notifications is not listed", 400, (object)[]);
