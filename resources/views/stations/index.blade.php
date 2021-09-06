@@ -22,10 +22,16 @@
                         <div class="col-3">
                            <div class="dropdown">
                               <div class="form-group">
-                                 <select name="format" id="format" class="form-control">
-                                    <option value="">Sort by format</option>
+                                 <select name="format[]" id="format" class="form-control" multiple="multiple">
                                     @foreach($categories as $category)
-                                       <option value="{{ $category->id }}" @if (request('format') == "$category->id") selected="selected" @endif>{{ $category->label }}</option>
+                                    <option class="fcaps" value="{{ $category->id }}" 
+                                    @foreach($formats as $format)
+                                       @if(request('format') == $category->id) selected="selected" 
+                                       @endif
+                                    @endforeach>
+                                    {{ $category->label }}
+                                    </option>
+                                       <!-- <option value="{{ $category->id }}" @if (request('format') == "$category->id") selected="selected" @endif>{{ $category->label }}</option> -->
                                     @endforeach
                                  </select>
                               </div>
@@ -160,5 +166,11 @@
       </div>
    </div>
 </div>
-<!-- Page Content End-->				  
+<!-- Page Content End-->	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" defer></script>	
+<script>
+   $(document).ready(function() {
+      $("#format").select2();
+   });
+</script>	 			  
 @endsection

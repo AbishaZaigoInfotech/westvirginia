@@ -16,13 +16,13 @@ class StationService
         $limit = Setting::where('name', 'entries_per_page')->pluck('value');
         $stations = Station::with('stationCategory');
         if($request->format){
-            if($request->format){
-                $format = $request->format;
-                $stations->whereHas('stationCategory', function ($query)use($format) {
-                    $query->where('category_id', $format);
-                });
-            }
+            $format =  $request->format;
+            $stations->whereHas('stationCategory', function ($query) use($format) {
+                $query->whereIn('category_id', $format);
+            });
         }
+            
+        
         if($request->status!=''){
             $stations->where('status', $request->status);
         }
@@ -37,8 +37,8 @@ class StationService
                     ->orWhere('frequency','like','%'.$request->search.'%')
                     ->orWhere('phone','like','%'.$request->search.'%')
                     ->orWhere('email','like','%'.$request->search.'%');
-        } 
-        return $stations->orderBy('id', 'desc')->paginate($limit[0]);
+        }
+        return $stations->orderBy('id', 'desc')->paginate($limit[0]);        
     }
 
     public function store(StationRequest $request)
