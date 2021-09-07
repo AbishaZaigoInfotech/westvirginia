@@ -24,14 +24,7 @@
                               <div class="form-group">
                                  <select name="format[]" id="format" class="form-control" multiple="multiple">
                                     @foreach($categories as $category)
-                                    <option class="fcaps" value="{{ $category->id }}" 
-                                    @foreach($formats as $format)
-                                       @if(request('format') == $category->id) selected="selected" 
-                                       @endif
-                                    @endforeach>
-                                    {{ $category->label }}
-                                    </option>
-                                       <!-- <option value="{{ $category->id }}" @if (request('format') == "$category->id") selected="selected" @endif>{{ $category->label }}</option> -->
+                                       <option value="{{ $category->id }}" @if (collect(request('format'))->contains($category->id)) selected="selected" @endif>{{ $category->label }}</option>
                                     @endforeach
                                  </select>
                               </div>
