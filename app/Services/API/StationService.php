@@ -14,13 +14,12 @@ class StationService
             $limit = request('limit') ? request('limit') : config('stations.pageLimit');
             $stations = Station::with('stationCategory');
             if($request->format){
-                if($request->format){
-                    $format = $request->format;
-                    $stations->whereHas('stationCategory', function ($query)use($format) {
-                        $query->where('category_id', $format);
-                    });
-                }
-            }
+                $format = $request->format;
+                $filter = explode(',', $format);
+                $stations->whereHas('stationCategory', function ($query)use($filter) {
+                    $query->whereIn('category_id', $filter);
+                });
+            }   
             if($request->status!=''){
                 $stations->where('status', $request->status);
             }
