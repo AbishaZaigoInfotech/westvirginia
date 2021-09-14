@@ -67,7 +67,7 @@ class NotificationService
     public function index(Request $request)
     {
         try{
-            $notifications = Notification::get();
+            $notifications = Notification::orderBy('id', 'desc')->get();
             return $notifications;
         } catch (\Exception $e) {
             return false;
