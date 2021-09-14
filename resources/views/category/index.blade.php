@@ -70,7 +70,10 @@
                                @canAccessCategory('categories.destroy')
                               <a href="#" onclick="return individualDelete({{ $category->id }})" title="Delete Category"><button class="btn btn-danger btn-sm" type="button"><i aria-hidden="true" class="fa fa-trash"></i></button></a>
                                @endcanAccessCategory
-                           </td>
+                               @if($parentCategoryID==7)
+                                 <a href="{{ route('categories.send', [ 'p_category' => $parentCategoryID, 'category' => $category->id ]) }}" title="send Notification"><button class="btn btn-primary btn-sm" type="button"><i aria-hidden="true" class="fa fa-paper-plane"></i></button></a>
+                              @endif
+                              </td>
                         </tr>
                        @empty
 						<tr>

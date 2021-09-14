@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests\CategoryRequest;
 use App\Services\CategoryService;
 use App\Models\Category;
+use App\Services\API\NotificationService;
 
 class CategoryController extends Controller
 {
@@ -15,9 +16,10 @@ class CategoryController extends Controller
 	/**
 	* Injecting CategoryService.
 	*/
-    public function __construct(CategoryService $categoryService)
+    public function __construct(CategoryService $categoryService, NotificationService $notificationService)
     {
         $this->categoryService = $categoryService;
+        $this->notificationService = $notificationService;
     }
 	
     /**
@@ -135,4 +137,11 @@ class CategoryController extends Controller
 		
 		return redirect()->route('categories.index', $parentCategoryID)->withSuccess('Category successfully deleted.');
     }
+
+    public function sendNotification(Request $request, $parentCategoryID, $id){
+        $message = $this->categoryService->sendNotification($parentCategoryID, $id);
+        $notification = $this->notificationService->pushNotification($request, $id);
+        return redirect()->route('categories.index', $parentCategoryID)->withSuccess('Notification sent successfully.');
+    }
+
 }

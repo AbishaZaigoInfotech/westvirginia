@@ -10,16 +10,13 @@ use App\Models\Category;
 class NotificationService
 {
 
-    public function pushNotification()
+    public function pushNotification(Request $request, $id)
     {
         try{
             $apiKey = config('stations.apiKey');
-            $notificationId = Category::where('name', 'notification')->select('id')->first();
-            $categories = Category::where('parent_category_id', $notificationId['id'])->select('label', 'description')->get();
-            foreach($categories as $category)
-            {
-                $title = $category['label']; 
-                $content = $category['description'];
+            $message = Category::select('label', 'description')->where('id', $id)->first();
+                $title = $message['label']; 
+                $content = $message['description'];
                 $deviceIds = Device::select('device_id', 'device_token')->get();
                 // $device_token = 'cmZtL1KVSlG33cAqh6jB8x:APA91bEMQtdOXopwov29t6zmwFEUpImFdG1mHkBBPfkpAj6ls7GJHQhQV8nNnff1tsvPGmdoPczTVObaY-1xo7crqY5ous8FA92iIBIMhbWq1ECPSKDlCgoxrR_TG09PLSAo0WSk0StJ';
                 foreach($deviceIds as $deviceId)
@@ -60,7 +57,6 @@ class NotificationService
                     }
                     
                     $notification->save();
-                }
             }
             return $notification;
         } catch (\Exception $e) {

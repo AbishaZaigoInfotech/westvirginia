@@ -14,13 +14,13 @@ class NotificationController extends Controller
         $this->notificationService = $notificationService;
     }
 
-    public function pushNotification(Request $request)
+    public function pushNotification(Request $request, $message)
     {
-        $notification = $this->notificationService->pushNotification($request);
+        $notification = $this->notificationService->pushNotification($request, $message);
         if($notification){
-            return apiResponse("Notification sent sucessfully", 200, (object)[]);
+            return true;
         }else{
-            return apiResponse("Failed to send notification", 400, (object)[]);
+            return false;
         }
     }
 

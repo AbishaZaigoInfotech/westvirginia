@@ -138,5 +138,9 @@ class CategoryService{
 		
 		return $category;
 	}
+    public function sendNotification($parentCategoryID, $id){
+        $message = Category::find($id);
+        return $message;
+    }
 
 }

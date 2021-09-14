@@ -80,6 +80,7 @@ Route::group(['prefix' => 'categories', 'exculde' => ['p_categories.filter', 'p_
     Route::get('/{p_category}/{category}/edit',[App\Http\Controllers\CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('{p_category}/{category}',[App\Http\Controllers\CategoryController::class, 'update'])->name('categories.update');
     Route::delete('{p_category}/{category}',[App\Http\Controllers\CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::get('{p_category}/{category}/send',[App\Http\Controllers\CategoryController::class, 'sendNotification'])->name('categories.send');
 });
 /** CATEGORY ROUTES **/
 
