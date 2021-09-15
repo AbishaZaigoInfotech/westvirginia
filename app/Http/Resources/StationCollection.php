@@ -20,6 +20,9 @@ class StationCollection extends JsonResource
         $path = 'storage/images/';
         $id = $this->id;
         $category = StationCategoryCollection::collection($this->stationCategory);
+        $facebook =($this->facebook == NULL) ? '' : $this->facebook;
+        $twitter =($this->twitter == NULL) ? '' : $this->twitter;
+        $instagram =($this->instagram == NULL) ? '' : $this->instagram;
         $image = ($this->logo == NULL) ? asset($path.'image_1630480430_612f282e51057.png') : asset($path.$this->logo);
         return [
             'id' =>(string) $this->id,
@@ -29,9 +32,9 @@ class StationCollection extends JsonResource
             'format' => $category,
             'streaming_player' => $this->streaming_player,
             'website' => $this->website,
-            'facebook' => $this->facebook,
-            'twitter' => $this->twitter,
-            'instagram' => $this->instagram,
+            'facebook' => $facebook,
+            'twitter' => $twitter,
+            'instagram' => $instagram,
             'phone' => $this->phone,
             'email' => $this->email,
             'status' =>  $status,
