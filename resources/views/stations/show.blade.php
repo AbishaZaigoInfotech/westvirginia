@@ -95,6 +95,7 @@
                                     {{ $station->email }}
                                 </div>
                             </div>
+                            @if($station->facebook != null)
                             <div class="row">
                                 <div class="col-3 font-weight-bold mt-2">
                                     Facebook
@@ -103,6 +104,8 @@
                                     <a href="{{ $station->facebook }}" target="_blank">{{ $station->facebook }}</a>
                                 </div>
                             </div>
+                            @endif
+                            @if($station->twitter != null)
                             <div class="row">
                                 <div class="col-3 font-weight-bold mt-2">
                                     Twitter
@@ -111,6 +114,8 @@
                                     <a href="{{ $station->twitter }}" target="_blank">{{ $station->twitter }}</a>
                                 </div>
                             </div>
+                            @endif
+                            @if($station->instagram != null)
                             <div class="row">
                                 <div class="col-3 font-weight-bold mt-2">
                                     Instagram
@@ -119,6 +124,7 @@
                                     <a href="{{ $station->instagram }}" target="_blank">{{ $station->instagram }}</a>
                                 </div>
                             </div>
+                            @endif
                         </div>
                         <div class="col-3">
                             <div class="col-12 mt-2">
