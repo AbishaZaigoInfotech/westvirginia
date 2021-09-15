@@ -39,7 +39,7 @@
                      </div>
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label for="description" class="control-label">Label<small class="text-danger required">*</small></label> 
+                           <label for="description" class="control-label">Description<small class="text-danger required">*</small></label> 
                            <input name="description" type="text" id="description" class="form-control" value="{{ old('description', $category->description) }}">
                            @error('description')
                            <span class="text-danger">{{ $message }}</span>

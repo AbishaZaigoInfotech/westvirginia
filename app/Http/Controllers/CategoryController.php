@@ -104,7 +104,7 @@ class CategoryController extends Controller
 			return redirect()->route('categories.index', $parentCategoryID)->withError('Category not found by ID ' .$id);
 		}
         $parentCategoryLabel = $category->parentCategory ? $category->parentCategory->label : '';
-        return view('larasnap::category.edit', compact('parentCategoryID', 'parentCategoryLabel', 'category'));
+        return view('category.edit', compact('parentCategoryID', 'parentCategoryLabel', 'category'));
     }
 
     /**
