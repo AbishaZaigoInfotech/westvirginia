@@ -49,6 +49,9 @@ class StationService
         $station->frequency = $request->frequency;
         $station->streaming_player = $request->streaming_player;
         $station->website = $request->website;
+        $station->facebook = $request->facebook;
+        $station->twitter = $request->twitter;
+        $station->instagram = $request->instagram;
         $station->phone = $request->phone;
         $station->email = $request->email;
         $station->status = $request->status;
@@ -91,6 +94,9 @@ class StationService
         $station->frequency = $request->frequency;
         $station->streaming_player = $request->streaming_player;
         $station->website = $request->website;
+        $station->facebook = $request->facebook;
+        $station->twitter = $request->twitter;
+        $station->instagram = $request->instagram;
         $station->phone = $request->phone;
         $station->email = $request->email;
         $station->status = $request->status;

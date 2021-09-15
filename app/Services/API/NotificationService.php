@@ -48,6 +48,7 @@ class NotificationService
                     $notification->message_id = $result['results'][0]['message_id'];
                     $notification->message = $content;
                     $notification->title = $title;
+                    $notification->category_id = $id;
                     $notification->device_id = $deviceId['device_id'];
                     $notification->device_token = $deviceId['device_token'];
                     if($result['success']==1){
@@ -67,9 +68,10 @@ class NotificationService
     public function index(Request $request)
     {
         try{
-            $notifications = Notification::orderBy('id', 'desc')->get();
+            $notifications = Notification::select('id', 'category_id', 'title', 'message')->where('status', 1)->orderBy('id', 'desc')->groupBy('category_id')->get();
             return $notifications;
         } catch (\Exception $e) {
+            dd($e);
             return false;
         }
     }

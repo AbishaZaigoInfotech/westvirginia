@@ -95,6 +95,30 @@
                                     {{ $station->email }}
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Facebook
+                                </div>
+                                <div class="col-9 mt-2">
+                                    <a href="{{ $station->facebook }}" target="_blank">{{ $station->facebook }}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Twitter
+                                </div>
+                                <div class="col-9 mt-2">
+                                    <a href="{{ $station->twitter }}" target="_blank">{{ $station->twitter }}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 font-weight-bold mt-2">
+                                    Instagram
+                                </div>
+                                <div class="col-9 mt-2">
+                                    <a href="{{ $station->instagram }}" target="_blank">{{ $station->instagram }}</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-3">
                             <div class="col-12 mt-2">

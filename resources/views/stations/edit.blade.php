@@ -113,6 +113,33 @@
                      </div>
                      <div class="col-md-4">
                         <div class="form-group">
+                           <label for="facebook" class="control-label">Link to facebook</label> 
+                           <input name="facebook" type="text" id="facebook" class="form-control" value="{{ old('facebook', $station->facebook) }}">
+                           @error('facebook')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="twitter" class="control-label">Link to twitter</label> 
+                           <input name="twitter" type="text" id="twitter" class="form-control" value="{{ old('twitter', $station->twitter) }}">
+                           @error('twitter')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="instagram" class="control-label">Link to instagram</label> 
+                           <input name="instagram" type="text" id="instagram" class="form-control" value="{{ old('instagram', $station->instagram) }}">
+                           @error('instagram')
+                           <span class="text-danger">{{ $message }}</span>
+                           @enderror 							
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
                            <label for="logo" class="control-label">Station Logo</label> 
                            <input name="logo" type="file" id="logo" class="form-control" value="{{ old('logo') }}">
                            <small class="text-danger">Allowed File Formats: jpg, png</small>

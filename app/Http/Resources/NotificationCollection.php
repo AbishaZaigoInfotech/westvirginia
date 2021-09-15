@@ -15,10 +15,12 @@ class NotificationCollection extends JsonResource
      */
     public function toArray($request)
     {
+        
         return [
             'id' =>(string) $this->id,
             'title' => $this->title,
             'message' => $this->message,
         ];
+        
     }
 }
